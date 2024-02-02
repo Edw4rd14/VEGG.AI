@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" modified="2024-02-02T15:42:58.100Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 OPR/106.0.0.0" etag="sq7qYC5iR6ll-rlVTfPD" version="23.0.2" type="device">
+  <diagram name="Page-1" id="03018318-947c-dd8e-b7a3-06fadd420f32">
+    <mxGraphModel dx="2523" dy="1433" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lokVkErCchEa_lnMMED--32" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="30" width="1060" height="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="677b7b8949515195-1" value="" style="whiteSpace=wrap;html=1;rounded=0;shadow=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=none;fontFamily=Verdana;fontSize=12;fontColor=#000000;align=center;comic=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="130" width="1060" height="940" as="geometry" />
+        </mxCell>
+        <mxCell id="677b7b8949515195-4" value="ABOUT" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana" parent="1" vertex="1">
+          <mxGeometry x="860" y="70" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="677b7b8949515195-7" value="LOGIN" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana" parent="1" vertex="1">
+          <mxGeometry x="960" y="70" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="677b7b8949515195-49" value="&lt;font size=&quot;1&quot; face=&quot;Helvetica&quot;&gt;&lt;b style=&quot;font-size: 36px;&quot;&gt;WHAT IS VEGG.AI?&lt;/b&gt;&lt;/font&gt;" style="text;html=1;points=[];align=center;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana" parent="1" vertex="1">
+          <mxGeometry x="20" y="360" width="1060" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lokVkErCchEa_lnMMED--2" value="&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;VEGG.AI is...&amp;nbsp;&lt;/span&gt;&lt;/font&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed &lt;br&gt;do eiusmod tempor incididunt ut labore et dolore magna aliqua. &lt;br&gt;Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus.&lt;br&gt;&amp;nbsp;Varius duis at consectetur lorem donec massa sapien faucibus et. Aliquam vestibulum morbi blandit cursus risus at. S" style="text;html=1;points=[];align=center;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana" parent="1" vertex="1">
+          <mxGeometry x="20" y="425" width="1060" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="lokVkErCchEa_lnMMED--92" value="© 2023 Edward Tan | All rights reserved." style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="37.5" y="990" width="1020" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JLFXNR7JM0bvwlJZvMSM-1" value="HOME" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana" parent="1" vertex="1">
+          <mxGeometry x="760" y="70" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="CWQsY11OtAqy3V1x673w-1" value="LOGO" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="90" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CWQsY11OtAqy3V1x673w-24" value="&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;HOW DOES VEGG.AI WORK?&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="text;html=1;points=[];align=center;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana" vertex="1" parent="1">
+          <mxGeometry x="20" y="560" width="1060" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="CWQsY11OtAqy3V1x673w-25" value="&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;VEGG.AI uses two different convolutional neural networks, one meant for 128x128 images, and another for 31x31 images,&lt;br&gt;to classify the provided images into a vegetable class...&lt;br&gt;&lt;/span&gt;&lt;/font&gt;" style="text;html=1;points=[];align=center;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana" vertex="1" parent="1">
+          <mxGeometry x="17.5" y="620" width="1060" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="CWQsY11OtAqy3V1x673w-26" value="&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;ABOUT VEGG.AI&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="text;html=1;points=[];align=center;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana" vertex="1" parent="1">
+          <mxGeometry x="17.5" y="740" width="1060" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="CWQsY11OtAqy3V1x673w-27" value="&lt;font face=&quot;Helvetica&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;VEGG.AI ................&lt;br&gt;&lt;/span&gt;&lt;/font&gt;" style="text;html=1;points=[];align=center;verticalAlign=top;spacingTop=-4;fontSize=14;fontFamily=Verdana" vertex="1" parent="1">
+          <mxGeometry x="20" y="800" width="1060" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

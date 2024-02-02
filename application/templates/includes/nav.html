@@ -10,8 +10,8 @@ FILENAME: nav.html
 -->
 
 <header>
-    <a href="/home" id="nav-title-link"><img src="{{ url_for('static',filename='images/vegg.ai_logo.png')}}"></a>
-    <h4 id="site-title" class="fade">{{ title }}</h4>
+    <a href="/home" id="nav-title-link"><img src="{{ url_for('static',filename='images/vegg.ai_logo.png')}}" id="nav-logo"></a>
+    <!-- <h4 id="site-title" class="fade">{{ title }}</h4> -->
     <nav>
         <ul class="nav">
             <li class="nav-item fade">
@@ -31,5 +31,4 @@ FILENAME: nav.html
             </li>
         </ul>
     </nav>
-    {% endif %}
 </header>

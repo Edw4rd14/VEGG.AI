@@ -8,3 +8,29 @@ ADM NO: 2214407
 FILENAME: index.html
 ==================================================
 -->
+
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <div id="main-div">
+        <img src="{{ url_for('static',filename='images/title.png')}}">
+        <h3 class="main-text">YOUR ONE-STOP VEGETABLE IMAGE CLASSIFIER</h3>
+        <input type="button" value="TO CLASSIFIER">
+    </div>
+    <div id="classifier">
+        <h1>CLASSIFIER</h1>
+        <form>
+            <div class="form">
+                <label id="drop-area">
+                    <input name="image-file" id="entry_value" type="file" accept="image/*" hidden>
+                    <div id="img-view">
+                        <img src="{{ url_for('static',filename='images/upload.png')}}">
+                        <p>Drag and drop or click here<br>to upload image</p>
+                        <span>Upload any images from your desktop</span>
+                    </div>
+                </label>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
