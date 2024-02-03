@@ -11,25 +11,35 @@ FILENAME: index.html
 
 {% extends "layout.html" %}
 {% block content %}
-<div>
+<div id="main">
     <div id="main-div">
         <img src="{{ url_for('static',filename='images/title.png')}}">
-        <h3 class="main-text">YOUR ONE-STOP VEGETABLE IMAGE CLASSIFIER</h3>
-        <input type="button" value="TO CLASSIFIER">
+        <h3 class="main-text">YOUR ONE-STOP VEGETABLE IMAGE CLASSIFIER.</h3>
+        <input type="button" value="TO CLASSIFIER" id="tc-button">
     </div>
     <div id="classifier">
-        <h1>CLASSIFIER</h1>
-        <form>
+        <h1 id="classifier-title">VEGETABLE CLASSIFIER</h1>
+        <h3>SELECT IMAGE SIZE</h3>
+        <form id="form-img-size">
+            <span class="size-label">128x128</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <span class="size-label">31x31</span>
+        </form>
+        <form method="post" action="/predict" id="predict-form" onsubmit="rememberRedirectTarget('classifier-title')" novalidate>
             <div class="form">
                 <label id="drop-area">
-                    <input name="image-file" id="entry_value" type="file" accept="image/*" hidden>
+                    <input id="image-file" type="file" accept="image/*" hidden>
                     <div id="img-view">
-                        <img src="{{ url_for('static',filename='images/upload.png')}}">
+                        <img src="{{ url_for('static',filename='images/upload.png')}}"> <!-- https://www.flaticon.com/free-icon/cloud-computing_159626?term=upload&page=1&position=3&origin=search&related_id=159626 -->
                         <p>Drag and drop or click here<br>to upload image</p>
                         <span>Upload any images from your desktop</span>
                     </div>
                 </label>
             </div>
+            <input type="submit">
         </form>
     </div>
 </div>
