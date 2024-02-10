@@ -20,11 +20,23 @@ FILENAME: layout.html
         <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css')}}">
         <link rel="icon" type="image" href="{{ url_for('static',filename='images/salad.png')}}"> <!--https://www.flaticon.com/free-icon/salad_135715?term=vegetable&page=1&position=16&origin=search&related_id=135715-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="{{ url_for('static',filename='js/index.js')}}" defer></script>
+        <script src="{{ url_for('static',filename='js/main.js')}}" defer></script>
+        {% block script %}
+        {% endblock %}
     </head>
     <body>
-        <div id="background"/>
+        <div id="background"/></div>
         {% include "includes/nav.html" %}
+        <div id="main-div">
+            <img src="{{ url_for('static',filename='images/title.png')}}" class="fade">
+            <h3 class="main-text fade">YOUR ONE-STOP VEGETABLE IMAGE CLASSIFIER.</h3>
+            {% if show_button | default(True) %}
+            <input type="button" value="TO CLASSIFIER" id="tc-button" class="fade">
+            {% endif %}
+        </div>
+        {% if show_cards | default(True) %}
+            {% include "includes/cards.html" %}
+        {% endif %}
         {% block content %}
         {% endblock %}
     </body>

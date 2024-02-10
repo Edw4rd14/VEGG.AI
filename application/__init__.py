@@ -10,6 +10,10 @@
 # Import modules
 from flask import Flask
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+
+# Instantiate database
+db = SQLAlchemy()
 
 # Create flask app
 app = Flask(__name__)
@@ -17,6 +21,14 @@ CORS(app=app)
 
 # Load configuration from config.cfg
 app.config.from_pyfile(filename='config.cfg', silent=False)
+
+# Initialize database
+with app.app_context():
+    db.init_app(app)
+    from .models import Entry
+    db.create_all()
+    db.session.commit()
+    print('Created Database!')
 
 # Import routes
 from application import routes

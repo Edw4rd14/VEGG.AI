@@ -1,0 +1,18 @@
+<!--
+ST1516 DEVOPS AND AUTOMATION FOR AI - CA1
+NAME: EDWARD TAN YUAN CHONG
+CLASS: DAAA/FT/2B/04
+ADM NO.: 2214407
+-->
+
+<div class="container-fluid my-5" id="card-container">
+    <div class="row">
+        {% from "./includes/card_macro.html" import card %}
+        <!-- Card 1 - Easy to use -->
+        {{ card(url_for('static', filename='images/easy-to-use.png'), 'EASY-TO-USE WEBSITE', 'Effortlessly classify your vegetables accurately with our user-friendly classifier. Simply upload an image of the vegetable in our classifier below, choose your desired image size - 128x128 or 31x31, and let our website do the magic.') }} <!-- https://www.flaticon.com/free-icon/easy-to-use_4456893?term=easy+to+use&page=1&position=1&origin=search&related_id=4456893 -->
+        <!-- Card 2 - AI Prediction -->
+        {{ card(url_for('static', filename='images/analysis.png'), 'PRECISE AI-POWERED PREDICTIONS', 'Our state-of-the-art vegetable classifier has been trained on hundreds of thousands of data points to achieve an unparalleled accuracy of 99%, providing you with accurate and trustworthy vegetbale classifications.') }} <!-- https://www.flaticon.com/free-icon/monitor_2782058?term=analysis&page=1&position=6&origin=search&related_id=2782058 -->
+        <!-- Card 3 - Flexibility -->
+        {{ card(url_for('static', filename='images/flexibility.png'), 'FLEXIBILITY', 'Our vegetable classifier seamlessly accommodates two different image sizes - 128x128 and 31x31 - and will resize your image accordingly, saving the hassle of having to deal with invalid image sizes.') }} <!-- https://www.flaticon.com/free-icon/turn_854959?term=flexible&page=1&position=2&origin=search&related_id=854959 -->
+    </div>
+</div>  

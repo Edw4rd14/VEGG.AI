@@ -1,0 +1,54 @@
+<!--
+==================================================
+ST1516 DEVOPS AND AUTOMATION FOR AI CA2 ASSIGNMENT 
+NAME: EDWARD TAN YUAN CHONG
+CLASS: DAAA/FT/2B/04
+ADM NO: 2214407
+==================================================
+FILENAME: history.html
+==================================================
+-->
+
+<div class="container fade" id="history-container">
+    <h2 id="history-title">Prediction History</h2>
+    <div id="search-div">
+        <img src="{{ url_for('static',filename='images/search.png')}}" id="search-img"> <!-- https://www.flaticon.com/free-icon/search_149852?term=search&page=1&position=4&origin=search&related_id=149852 -->
+        <input type="text" id="search-input" placeholder="Search for item in table...">
+    </div>
+    <table class="table table-striped table-hover" id="history-table">
+        <thead class="thead-dark">
+            <tr>
+            <th>ID</th>
+            <th>File Name</th>
+            <th>Image</th>
+            <th>Image Size</th>
+            <th>Prediction</th>
+            <th>Timestamp</th>
+            <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if history %}
+                {% for data in history %}
+                    <tr>
+                    <td>{{ data.id }}</td>
+                    <td>{{ data.file_name }}</td>
+                    <td><img src='{{ data.image }}' alt="base64Image" class="history-img"></td>
+                    <td>{{ data.image_size }}x{{ data.image_size }}px</td>
+                    <td>{{ data.prediction }}</td>
+                    <td>{{ data.timestamp.strftime("%d %b %y %H:%M") }}</td>
+                    <td>
+                        <form name="remove_history" action='/remove/{{data.id}}' method="POST" onsubmit="rememberRedirectTarget('history-table')" novalidate>
+                            <input type="submit" class="history-delete mx-auto my-auto" value="Delete">
+                        </form>
+                    </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="12" class="text-center">Empty Prediction History.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>

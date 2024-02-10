@@ -1,0 +1,25 @@
+<!--
+==================================================
+ST1516 DEVOPS AND AUTOMATION FOR AI CA2 ASSIGNMENT 
+NAME: EDWARD TAN YUAN CHONG
+CLASS: DAAA/FT/2B/04
+ADM NO: 2214407
+==================================================
+FILENAME: index.html
+==================================================
+-->
+
+{% macro card(image_url, title, description) %}
+<div class="col-md-4">
+    <div class="card fade mx-auto">
+        <div class="card-body">
+            <div class="card-icon mx-auto">
+                <img src="{{ image_url }}" />
+            </div>
+            <h5 class="card-title">{{ title }}</h5>
+            <p class="card-text">{{ description }}</p>
+            <p class="card-line">—</p>
+        </div>
+    </div>
+</div>
+{% endmacro %}

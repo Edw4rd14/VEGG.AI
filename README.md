@@ -33,7 +33,7 @@ REPOSITORY: CA2-DAAA2B04-2214407-EDWARD
 
 REPOSITORY: CA2-DAAA2B04-2214407-EDWARD-WEBAPP
 
-- DLApp-WebApp-Branch => Issue #3, Issue #4, Issue #14, Issue #5, Issue #8
+- DLApp-WebApp-Branch => Issue #3, Issue #4, Issue #14, Issue #15, Issue #8
 
 - DLApp-BackEnd-Branch => Issue #6, Issue #7
 
@@ -45,7 +45,7 @@ Total issues: 14
 
 Total branches including main: 6
 
-*The issues & scrumboard can be found in the `CA2-DAAA2B04-2214407-EDWARD` GitLab repository.
+*The issues & scrumboard can be found in the `CA2-DAAA2B04-2214407-EDWARD` GitLab repository, which can be found <a href='https://gitlab.com/2b04.2214407.edwardtan/ca2-daaa2b04-2214407-edward'>Here</a>.
 
 <b>Docker Containers:</b>
 

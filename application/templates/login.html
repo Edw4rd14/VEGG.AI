@@ -11,4 +11,56 @@ FILENAME: login.html
 
 {% extends "layout.html" %}
 {% block content %}
+<div class="text-center">
+    <input id="openPopup" type="button" class="popup-button" value="LOGIN"></input>
+</div>
+<div id="fill"></div>
+<div id="loginPopup" class="overlay {{ 'active' if session['login_failed'] else '' }}">
+    <div class="popup-container">
+      <div class="popup-image"></div>
+      <div class="popup-form">
+        <h2 id="login-title">WELCOME TO <b>VEGG.AI</b>!</h2>
+        <form method="POST" novalidate action="/login">
+            {{ form.hidden_tag() }}
+            <div>
+                <img src="{{ url_for('static',filename='images/user.png')}}" class="login-form-img"> <!-- https://www.flaticon.com/free-icon/user_1077114?term=username&page=1&position=2&origin=search&related_id=1077114 --> 
+                {{ form.username.label(class='login-label') }}
+                <br>
+                {{ form.username(size=32) }}
+                {% if form.username.errors %}
+                <span class="login-error">{{ form.username.errors[-1] }}</span>
+                {% endif %}
+            </div>
+            <div>
+                <img src="{{ url_for('static',filename='images/pass.png')}}" class="login-form-img"> <!-- https://www.flaticon.com/free-icon/padlock_3064155?term=password&page=1&position=5&origin=search&related_id=3064155 -->
+                {{ form.password.label(class='login-label') }}
+                <br>
+                {{ form.password(size=32) }}
+                {% if form.password.errors %}
+                <span class="login-error">{{ form.password.errors[-1] }}</span>
+                {% endif %}
+            </div>
+            <div>
+                <a href="#" id="forgot">Forgot password?</a>
+            </div>
+            <div>
+            <br>
+            {% with messages = get_flashed_messages(with_categories=true)%}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <div class="alert alert-{{category}}">
+                      <p>{{ message }}</p>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+            </div>
+            {{ form.submit() }}
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="{{ url_for('static',filename='js/login.js')}}" defer></script>
 {% endblock %}

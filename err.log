@@ -1,0 +1,35 @@
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) NOT NULL constraint failed: prediction_entries.file_name
+[SQL: INSERT INTO prediction_entries (file_name, image, prediction, timestamp) VALUES (?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: (None, <memory at 0x00000000534B5180>, 'Cabbage')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) NOT NULL constraint failed: prediction_entries.file_name
+[SQL: INSERT INTO prediction_entries (file_name, image, prediction, timestamp) VALUES (?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: (None, <memory at 0x00000000534B4DC0>, 'Cabbage')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.OperationalError) table prediction_entries has no column named image_size
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: (None, <memory at 0x000000005313FF40>, (128, 128), 'Capsicum')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Failed to add prediction to history. Error: (sqlite3.ProgrammingError) Error binding parameter 3: type 'tuple' is not supported
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: (None, <memory at 0x00000000534C01C0>, (128, 128), 'Capsicum')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) NOT NULL constraint failed: prediction_entries.file_name
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: (None, <memory at 0x000000005313FF40>, 128, 'Radish')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (builtins.TypeError) memoryview: a bytes-like object is required, not 'str'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: [{'image_size': 128, 'image': 'abc', 'prediction': 'Carrot', 'file_name': None}]]
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) NOT NULL constraint failed: prediction_entries.file_name
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: (None, <memory at 0x000000005313FF40>, 128, 'Capsicum')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) NOT NULL constraint failed: prediction_entries.file_name
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: (None, <memory at 0x000000005313FF40>, 128, 'Capsicum')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to get history. Error: Invalid base64-encoded string: number of data characters (273) cannot be 1 more than a multiple of 4
+Failed to get history. Error: Invalid base64-encoded string: number of data characters (273) cannot be 1 more than a multiple of 4
+Failed to get history. Error: Invalid base64-encoded string: number of data characters (273) cannot be 1 more than a multiple of 4
+Failed to get history. Error: Invalid base64-encoded string: number of data characters (273) cannot be 1 more than a multiple of 4
