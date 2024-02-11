@@ -28,7 +28,7 @@ with app.app_context():
     from .models import Entry
     db.create_all()
     db.session.commit()
-    print('Created Database!')
+    print('\nDatabase is running...\n')
 
 # Import routes
 from application import routes

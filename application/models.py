@@ -25,8 +25,10 @@ class Entry(db.Model):
     timestamp = db.Column('timestamp',db.DateTime, nullable=False, default=func.now()) # Get current timestamp
     # Check constraints
     __table_args__ = (
-        CheckConstraint('image_size = 31 OR image_size = 128'),
+        CheckConstraint("image_size = 31 OR image_size = 128"),
+        CheckConstraint("octet_length(image) > 0"),
         CheckConstraint("prediction IN ('Bean', 'Bitter Gourd', 'Bottle Gourd', 'Brinjal', 'Broccoli', 'Cabbage', 'Capsicum', 'Carrot', 'Cauliflower', 'Cucumber', 'Papaya', 'Potato', 'Pumpkin', 'Radish', 'Tomato')"),
+        CheckConstraint("LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'")
     )
     # Table name
     __tablename__ = 'prediction_entries'

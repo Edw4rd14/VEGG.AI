@@ -56,6 +56,7 @@ const handleFile = (file) => {
         imgView.style.backgroundColor = 'white';
         fileName.textContent = `FILE NAME: ${file.name}`;
         base64ImageData = imgLink;
+        console.log(base64ImageData)
         result.style.display = 'none';
         sessionStorage.setItem('fileName',file.name)
     };
@@ -151,8 +152,8 @@ predict_button.addEventListener('click',(e)=>{
         url: `/predict`,
         data: JSON.stringify({
             'image':base64ImageData, 
-            'image_size': image_size.toString(),
-            'file_name': sessionStorage.getItem('fileName').toString()
+            'image_size': image_size,
+            'file_name': sessionStorage.getItem('fileName')
         }
         ),
         contentType: 'application/json',
@@ -184,28 +185,23 @@ clear_button.addEventListener('click',(e)=>{
 // HISTORY TABLE
 // =============
 
+// SEARCH TABLE
 document.getElementById("search-input").addEventListener("keyup", function() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("search-input");
     filter = input.value.toUpperCase();
     table = document.getElementById("history-table");
     tr = table.getElementsByTagName("tr");
-
     for (i = 1; i < tr.length; i++) {
-        var displayRow = false; // Flag to determine if the row should be displayed
+        var displayRow = false; 
         td = tr[i].getElementsByTagName("td");
-
-        // Loop through all td elements in the current row
         for (j = 0; j < td.length; j++) {
             txtValue = td[j].textContent || td[j].innerText;
-            // Check if the text in the current td element contains the search filter
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                displayRow = true; // Set the flag to true if any td element matches
-                break; // Exit the loop once a match is found in any column
+                displayRow = true;
+                break; 
             }
         }
-
-        // Display or hide the row based on the displayRow flag
         if (displayRow) {
             tr[i].style.display = "";
         } else {
@@ -213,3 +209,69 @@ document.getElementById("search-input").addEventListener("keyup", function() {
         }
     }
 });
+
+// SORT COLUMNS (ID AND TIMESTAMP) [REFFERRED TO https://www.youtube.com/watch?v=8SL_hM1a0yo]
+function sortTableByColumn(table, column, asc = true) {
+    const dirModifier = asc ? 1: -1;
+    const tBody = table.tBodies[0];
+    const rows = Array.from(tBody.querySelectorAll('tr'));
+    // Sort each row
+    const sortedRows = rows.sort((a,b)=>{
+        const aColText = a.querySelector(`td:nth-child(${column+1})`).textContent.trim();
+        const bColText = b.querySelector(`td:nth-child(${column+1})`).textContent.trim();
+        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier)
+    })
+    // Remove all existing TR from the table
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+    }
+    // Re-add sorted rows
+    tBody.append(...sortedRows);
+    // Remember how current column was sorted
+    table.querySelectorAll('th').forEach(th=> th.classList.remove('th-sort-asc', 'th-sort-desc'));
+    table.querySelector(`th:nth-child(${column+1})`).classList.toggle("th-sort-asc", asc);
+    table.querySelector(`th:nth-child(${column+1})`).classList.toggle("th-sort-desc", !asc);
+}
+document.querySelectorAll('.table-sortable th').forEach(headerCell => {
+    headerCell.addEventListener('click', ()=> {
+        const tableElement = headerCell.parentElement.parentElement.parentElement;
+        const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+        if (headerIndex === 0 || headerIndex === 5) {
+            const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+            sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+        }
+    })
+})
+// FILTER TABLE
+function filterTable() {
+    // Get elements required
+    var selects = document.getElementsByTagName("select");
+    var table = document.getElementById("history-table");
+    var rows = table.getElementsByTagName("tr");
+    // Loop through all table rows, starting from the second row (skipping the header row)
+    for (var i = 1; i < rows.length; i++) {
+        var row = rows[i];
+        var cells = row.getElementsByTagName("td");
+        var shouldDisplay = true;
+        // Loop through all select elements and apply filtering
+        for (var j = 0; j < selects.length; j++) {
+            var filter = selects[j].value.toUpperCase();
+            var columnIndex = selects[j].getAttribute("data-column");
+            // If the select element has a valid column index
+            if (columnIndex !== null) {
+                var cell = cells[columnIndex];
+                // If the cell exists and its text content does not match the filter
+                if (cell && cell.textContent.toUpperCase().indexOf(filter) === -1 && filter !== "") {
+                    shouldDisplay = false;
+                    break; // No need to check further, move to the next row
+                }
+            }
+        }
+        // Display or hide the row based on the filter results
+        if (shouldDisplay) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    }
+}

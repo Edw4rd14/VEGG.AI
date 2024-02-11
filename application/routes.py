@@ -92,16 +92,26 @@ def resize_and_preprocess_image(image_path, target_size):
 def make_prediction(instances, target_size):
     data = json.dumps({"signature_name": "serving_default", "instances":instances.tolist()})
     headers = {"content-type": "application/json"}
-    if target_size[0] == 31:
-        url = customvgg_url
-    else:
-        url = conv2d_url
+    url = customvgg_url if target_size == 31 else (conv2d_url if target_size == 128 else None)
     json_response = requests.post(url, data=data, headers=headers)
     try:
         predictions = json.loads(json_response.text)['predictions']
     except:
         pass
     return predictions
+
+# =======
+# PREDICT
+# =======
+def predict_label(image, size):
+    # Parse and store image
+    parse_image(image)
+    # Preprocess image
+    img_array = resize_and_preprocess_image("output.png", target_size=(size,size))
+    # Get predictions
+    predictions = make_prediction(instances=img_array, target_size=size)
+    # Return label of prediction
+    return labels[np.argmax(predictions)]
 
 # ~~~~~~~~~~~~~~~~~~~
 # Website page routes
@@ -143,8 +153,8 @@ def login():
 # =========
 
 # Index page with classifier
-@app.route('/index')
 @app.route('/home')
+@app.route('/index')
 def index():
     return render_template('index.html', history=history_manager.get_history())
 
@@ -159,29 +169,24 @@ def predict():
     if request.method == 'POST':
         try:
             # Image data
-            data = request.json['image'].encode('utf-8')
+            image = request.json['image'].encode('utf-8')
+            # File name
+            file_name = request.json['file_name']
             # Image size
             size = int(request.json['image_size'])
-            image_size = (size,size)
-            # Parse and store image
-            parse_image(data)
-            # Preprocess image
-            img_array = resize_and_preprocess_image("output.png", target_size=image_size)
-            # Make prediction based on image size
-            predictions = make_prediction(img_array, target_size=image_size)
-            # Get label of prediction
-            response = labels[np.argmax(predictions)]
+            # Predict for image
+            prediction = predict_label(image=image, size=size)
             # Add history entry
             new_prediction = Entry(
-                file_name = request.json['file_name'],
-                image = data,
+                file_name = file_name,
+                image = image,
                 image_size= size,
-                prediction = response
+                prediction = prediction
             )
             # Add entry
             history_manager.add_prediction(new_prediction)
             # Return response
-            return response
+            return prediction
         except Exception as e:
             return jsonify({"error_message":"An error has occurred! Please try again."}), 500
     else:
@@ -198,3 +203,91 @@ def predict():
 @app.route('/more')
 def about():
     return render_template('about.html', show_button=False)
+
+# ==============
+# Remove history
+# ==============
+
+# Remove history 
+@app.route("/remove/<int:history_id>", methods=['POST'])
+def remove(history_id):
+    history_manager.remove_history(history_id=history_id)
+    return redirect(url_for('index'))
+
+# ============
+# RESTFUL APIs
+# ============
+
+# API TESTING
+# Add history API
+@app.route("/api/add", methods=['POST'])
+def api_add():
+    # Image data
+    image = request.json['image'].encode('utf-8')
+    # File name
+    file_name = request.json['file_name']
+    # Image size
+    size = int(request.json['image_size'])
+    # Prediction
+    prediction = request.json['prediction']
+    # Add history entry
+    new_prediction = Entry(
+        file_name = file_name,
+        image = image,
+        image_size= size,
+        prediction = prediction
+    )
+    # Add entry to database
+    result = history_manager.add_prediction(new_entry=new_prediction)
+    # Return result
+    return jsonify({'id':result})
+
+# Get history API
+@app.route("/api/get/<int:history_id>", methods=['GET'])
+def api_get(history_id):
+    # Get history by Id
+    history = history_manager.get_history_by_id(history_id=history_id)
+    # Store in JSON object
+    data = {
+        "id": history.id,
+        "file_name": history.file_name,
+        "image": history.image.decode("utf-8"),
+        "image_size": history.image_size,
+        "prediction": history.prediction,
+        "timestamp": history.timestamp
+    }
+    result = jsonify(data)
+    # Return JSON object
+    return result
+
+# Delete history API
+@app.route("/api/delete/<int:history_id>", methods=['POST'])
+def api_delete(history_id):
+    # Try to remove history, if successful, return success result
+    try:
+        history_manager.remove_history(history_id=history_id)
+        return jsonify({'result':'Success'})
+    # Else, return failure result
+    except:
+        return jsonify({'result':'Failure'})
+    
+# Get all history API
+@app.route("/api/get", methods=['GET'])
+def get_all_history():
+    # Return entire history
+    return history_manager.get_history()
+
+# Make prediction API
+@app.route("/api/predict", methods=['POST'])
+def api_predict():
+    # Get JSON file from client
+    data = request.get_json()
+    # Get each data field
+    image = data['image'].encode('utf-8')
+    size = int(data['image_size'])
+    # Predict for image
+    prediction = predict_label(image=image, size=size)
+    # Return JSON object with price
+    return jsonify({'prediction': prediction})
+
+

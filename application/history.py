@@ -8,7 +8,6 @@
 # ==================================================
 
 # Import modules
-from flask import flash
 import pytz
 from application.models import Entry
 import base64
@@ -29,7 +28,6 @@ class PredictionHistoryManager:
         except Exception as e:
             self.logger.error(f"Failed to add prediction to history. Error: {str(e)}")
             self.database.session.rollback()
-            flash(self.db_err, 'danger')
     # ===========
     # Get History
     # ===========
@@ -46,7 +44,6 @@ class PredictionHistoryManager:
             return history_list
         except Exception as e:
             self.database.session.rollback()
-            flash(self.db_err, 'danger')
             self.logger.error(f"Failed to get history. Error: {str(e)}")
             return []
     # ==============

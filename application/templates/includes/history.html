@@ -15,15 +15,49 @@ FILENAME: history.html
         <img src="{{ url_for('static',filename='images/search.png')}}" id="search-img"> <!-- https://www.flaticon.com/free-icon/search_149852?term=search&page=1&position=4&origin=search&related_id=149852 -->
         <input type="text" id="search-input" placeholder="Search for item in table...">
     </div>
-    <table class="table table-striped table-hover" id="history-table">
+    <table class="table table-striped table-hover table-sortable" id="history-table">
         <thead class="thead-dark">
             <tr>
-            <th>ID</th>
-            <th>File Name</th>
+            <th class="sortable">ID</th>
+            <th>
+                File Name
+                <select class="history-select" onchange="filterTable()" data-column="1">
+                    <option value="">All</option>
+                    <option value=".png">.png</option>
+                    <option value=".jpg">.jpg</option>
+                </select>
+            </th>
             <th>Image</th>
-            <th>Image Size</th>
-            <th>Prediction</th>
-            <th>Timestamp</th>
+            <th>
+                Image Size
+                <select class="history-select" onchange="filterTable()" data-column="3">
+                    <option value="">All</option>
+                    <option value="31x31px">31x31px</option>
+                    <option value="128x128px">128x128px</option>
+                </select>
+            </th>
+            <th>
+                Prediction
+                <select class="history-select" onchange="filterTable()" data-column="4">
+                    <option value="">All</option>
+                    <option value="Bean">Bean</option>
+                    <option value="Bitter Gourd">Bitter Gourd</option>
+                    <option value="Bottle Gourd">Bottle Gourd</option>
+                    <option value="Brinjal">Brinjal</option>
+                    <option value="Broccoli">Broccoli</option>
+                    <option value="Cabbage">Cabbage</option>
+                    <option value="Capsicum">Capsicum</option>
+                    <option value="Carrot">Carrot</option>
+                    <option value="Cauliflower">Cauliflower</option>
+                    <option value="Cucumber">Cucumber</option>
+                    <option value="Papaya">Papaya</option>
+                    <option value="Potato">Potato</option>
+                    <option value="Pumpkin">Pumpkin</option>
+                    <option value="Radish">Radish</option>
+                    <option value="Tomato">Tomato</option>
+                </select>
+            </th>
+            <th class="sortable">Timestamp</th>
             <th>Delete</th>
             </tr>
         </thead>
