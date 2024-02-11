@@ -5,7 +5,7 @@ NAME: EDWARD TAN YUAN CHONG
 CLASS: DAAA/FT/2B/04
 ADM NO: 2214407
 ==================================================
-FILENAME: layout.html
+FILENAME: index.css
 ==================================================
 */
 
@@ -402,10 +402,13 @@ ABOUT
 
 .p-about {
   font-size: 18px;
+  margin-bottom: 8vh;
+  margin-top: -2vh;
 }
 
 #div-about {
   margin-bottom: 15vh;
+  margin-top: -15vh;
 }
 
 /*
