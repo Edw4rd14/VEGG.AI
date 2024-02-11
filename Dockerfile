@@ -10,13 +10,14 @@
 # Pull python version
 FROM python:3.8.18
 
-# Set working directory
-WORKDIR /ca2-daaa2b04-2214407-edward-webapp
-
 # copy every content from the local file to the image
 COPY . /ca2-daaa2b04-2214407-edward-webapp
 
+# Set working directory
+WORKDIR /ca2-daaa2b04-2214407-edward-webapp
+
 # Install the dependencies and packages in the requirements file
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Set the FLASK_APP environment variable

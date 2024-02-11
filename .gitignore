@@ -1,0 +1,4 @@
+.dockerignore
+output.png
+__pycache__
+.pytest_cache
