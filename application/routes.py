@@ -99,7 +99,7 @@ def make_prediction(instances, target_size):
         if target_size == 31
         else (conv2d_url if target_size == 128 else None)
     )
-    json_response = requests.post(url, data=data, headers=headers) # nosec
+    json_response = requests.post(url, data=data, headers=headers)  # nosec
     try:
         predictions = json.loads(json_response.text)["predictions"]
     except Exception as e:
