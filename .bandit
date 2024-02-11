@@ -7,6 +7,7 @@
 # FILENAME: .bandit
 # ==================================================
 
-# Skips "assert" warnings as assert was used entirely in Pytest
+# Skips "assert" warnings as assert was used entirely in Pytest [B101]
+# Skips "blacklist" warnings for Pickle being unsafe [B301 and B403]
 [bandit]
-skips: B101
+skips: B101,B403,B301
