@@ -1,3 +1,30 @@
-.gitignore
-__pycache__
+# ==================================================
+# ST1516 DEVOPS AND AUTOMATION FOR AI CA2 ASSIGNMENT 
+# NAME: EDWARD TAN YUAN CHONG
+# CLASS: DAAA/FT/2B/04
+# ADM NO: 2214407
+# ==================================================
+# FILENAME: .dockerignore
+# ==================================================
+
+# From practical 8B:
+cmd.sh
 *.pyc
+*.pem
+*.pub
+*.tar.gz
+*.zip
+*.sql
+*.db
+./tmp
+./build/*
+.idea/*
+.idea
+env
+venv
+.gitignore
+.vscode
+__pycache__
+.gitlab-ci.yml
+database.db
+nohup.out
