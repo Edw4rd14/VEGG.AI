@@ -4,8 +4,9 @@
 # CLASS: DAAA/FT/2B/04
 # ADM NO: 2214407
 # ==================================================
-# FILENAME: app.py
+# FILENAME: .bandit
 # ==================================================
 
-# Import modules
-from application import app
+# Skips "assert" warnings as assert was used entirely in Pytest
+[bandit]
+skips: B101

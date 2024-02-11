@@ -1,0 +1,62 @@
+stages:
+  - lint
+  - format
+  - security
+  - dependency-check
+  - test
+  - complexity
+  - coverage
+
+linting:
+  stage: lint
+  image: python:3.8.18
+  script:
+    - pip install -r requirements.txt
+    - flake8 --ignore E501,E302,W503 . # Ignores line too long (E501), expected 2 blank lines (E302) and line break (W503)
+
+formatting:
+  stage: format
+  image: python:3.8.18
+  script:
+    - pip install -r requirements.txt
+    - black .
+
+security_scan:
+  stage: security
+  image: python:3.8.18
+  script:
+    - pip install -r requirements.txt
+    - bandit -r .
+
+dependency_check:
+  stage: dependency-check
+  image: python:3.8.18
+  script:
+    - pip install -r requirements.txt
+    - safety check
+
+pytest:
+  stage: test
+  image: python:3.8.18
+  script:
+    - pip install -r requirements.txt
+    - python -m pytest tests/test_application.py -v
+    - python -m pytest tests/test_api.py -v -p no:randomly
+  artifacts:
+    reports:
+      junit: junit.xml
+
+complexity_check:
+  stage: complexity
+  image: python:3.8.18
+  script:
+    - pip install -r requirements.txt
+    - radon cc -a -nb .
+
+coverage_check:
+  stage: coverage
+  image: python:3.8.18
+  script:
+    - pip install -r requirements.txt
+    - coverage run -m pytest -v -p no:randomly
+    - coverage report -m

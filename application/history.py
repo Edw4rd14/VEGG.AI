@@ -1,5 +1,5 @@
 # ==================================================
-# ST1516 DEVOPS AND AUTOMATION FOR AI CA2 ASSIGNMENT 
+# ST1516 DEVOPS AND AUTOMATION FOR AI CA2 ASSIGNMENT
 # NAME: EDWARD TAN YUAN CHONG
 # CLASS: DAAA/FT/2B/04
 # ADM NO: 2214407
@@ -26,24 +26,30 @@ class PredictionHistoryManager:
         except Exception as e:
             self.logger.error(f"Failed to add prediction to history. Error: {str(e)}")
             self.database.session.rollback()
+
     # ===========
     # Get History
     # ===========
     def get_history(self):
         try:
-            history = self.database.session.execute(self.database.select(Entry).order_by(Entry.id)).scalars()
+            history = self.database.session.execute(
+                self.database.select(Entry).order_by(Entry.id)
+            ).scalars()
             history_list = list(history)
             # Define the Singapore timezone
-            sg_tz = pytz.timezone('Asia/Singapore')
+            sg_tz = pytz.timezone("Asia/Singapore")
             # Convert each timestamp to SGT and decode image
             for entry in history_list:
-                entry.timestamp = entry.timestamp.replace(tzinfo=pytz.utc).astimezone(sg_tz)
-                entry.image = entry.image.decode('utf-8')
+                entry.timestamp = entry.timestamp.replace(tzinfo=pytz.utc).astimezone(
+                    sg_tz
+                )
+                entry.image = entry.image.decode("utf-8")
             return history_list
         except Exception as e:
             self.database.session.rollback()
             self.logger.error(f"Failed to get history. Error: {str(e)}")
             return []
+
     # ==============
     # Remove History
     # ==============
@@ -54,7 +60,9 @@ class PredictionHistoryManager:
             self.database.session.commit()
         except Exception as e:
             self.database.session.rollback()
-            self.logger.error(f"Failed to remove history with ID {history_id}. Error: {str(e)}")
+            self.logger.error(
+                f"Failed to remove history with ID {history_id}. Error: {str(e)}"
+            )
             return 0
 
     # ==================
@@ -66,5 +74,7 @@ class PredictionHistoryManager:
             return result
         except Exception as e:
             self.database.session.rollback()
-            self.logger.error(f"Failed to get history with ID {history_id}. Error: {str(e)}")
+            self.logger.error(
+                f"Failed to get history with ID {history_id}. Error: {str(e)}"
+            )
             return 0

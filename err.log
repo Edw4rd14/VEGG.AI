@@ -604,3 +604,114 @@ Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was
 Failed to remove history with ID 12. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 Failed to remove history with ID 14. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001', <memory at 0x7f95e2eaa640>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.png', <memory at 0x7f95e2eaae80>, -100, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.webp', <memory at 0x7f95e2eaaf40>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: prediction IN ('Bean', 'Bitter Gourd', 'Bottle Gourd', 'Brinjal', 'Broccoli', 'Cabbage', 'Capsicum', 'Carrot', 'Cauliflower', 'Cucumber', 'Papaya', 'Potato', 'Pumpkin', 'Radish', 'Tomato')
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7f95e2eaa640>, 128, 'Mcspicy')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: length(image) > 0
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7f95e2db7400>, 128, 'Cucumber')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 12. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 14. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001', <memory at 0x7fec091addc0>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.png', <memory at 0x7fec091addc0>, -100, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.webp', <memory at 0x7fec091addc0>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: prediction IN ('Bean', 'Bitter Gourd', 'Bottle Gourd', 'Brinjal', 'Broccoli', 'Cabbage', 'Capsicum', 'Carrot', 'Cauliflower', 'Cucumber', 'Papaya', 'Potato', 'Pumpkin', 'Radish', 'Tomato')
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7fec091addc0>, 128, 'Mcspicy')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 12. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 14. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001', <memory at 0x7f79f6738340>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.png', <memory at 0x7f79f6738340>, -100, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.webp', <memory at 0x7f79f6738400>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: prediction IN ('Bean', 'Bitter Gourd', 'Bottle Gourd', 'Brinjal', 'Broccoli', 'Cabbage', 'Capsicum', 'Carrot', 'Cauliflower', 'Cucumber', 'Papaya', 'Potato', 'Pumpkin', 'Radish', 'Tomato')
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7f79f6738d00>, 128, 'Mcspicy')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 12. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 14. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001', <memory at 0x7f5c1c522400>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.png', <memory at 0x7f5c1c5224c0>, -100, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.webp', <memory at 0x7f5c1c522400>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: prediction IN ('Bean', 'Bitter Gourd', 'Bottle Gourd', 'Brinjal', 'Broccoli', 'Cabbage', 'Capsicum', 'Carrot', 'Cauliflower', 'Cucumber', 'Papaya', 'Potato', 'Pumpkin', 'Radish', 'Tomato')
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7f5c1c522580>, 128, 'Mcspicy')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 12. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 14. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to get history with ID 7. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to get history with ID 2. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to get history with ID 6. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to get history with ID 8. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to get history with ID 10. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001', <memory at 0x7f9d45ca0400>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.png', <memory at 0x7f9d45ca04c0>, -100, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.webp', <memory at 0x7f9d45ca0400>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: prediction IN ('Bean', 'Bitter Gourd', 'Bottle Gourd', 'Brinjal', 'Broccoli', 'Cabbage', 'Capsicum', 'Carrot', 'Cauliflower', 'Cucumber', 'Papaya', 'Potato', 'Pumpkin', 'Radish', 'Tomato')
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7f9d45ca0580>, 128, 'Mcspicy')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 12. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 14. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.

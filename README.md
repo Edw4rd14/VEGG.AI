@@ -41,6 +41,8 @@ The website is titled "Vegg.AI", which is a web application that allows users to
 - Conv2D for 128x128 images: https://ca2-dl-models.onrender.com/v1/models/conv2d128
 - CustomVGG for 31x31 images: https://ca2-dl-models.onrender.com/v1/models/customvgg31 
 
+<b>Final website link for Vegg.AI:</b> https://vegg-ai.onrender.com
+
 <b>Branches:</b>
 
 - Main => Main Repository
@@ -57,11 +59,15 @@ REPOSITORY: CA2-DAAA2B04-2214407-EDWARD-WEBAPP
 
 - DLApp-Testing-Branch => Issue #9, Issue #10, Issue #11
 
-- DLApp-Deployment-Branch => Issue #12, Issue #13
+- DLApp-Deployment-Branch => Issue #12
 
-Total issues: 14
+- DLApp-CICD-Branch => Issue #13
 
-Total branches including main: 6
+- DLApp-Additional-Branch => Issue #14
+
+Total issues: 15
+
+Total branches including main: 8
 
 *The issues & scrumboard can be found in the `CA2-DAAA2B04-2214407-EDWARD` GitLab repository, which can be found <a href='https://gitlab.com/2b04.2214407.edwardtan/ca2-daaa2b04-2214407-edward'>Here</a>.
 
