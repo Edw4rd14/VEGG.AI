@@ -1,4 +1,14 @@
+# ==================================================
+# ST1516 DEVOPS AND AUTOMATION FOR AI CA2 ASSIGNMENT
+# NAME: EDWARD TAN YUAN CHONG
+# CLASS: DAAA/FT/2B/04
+# ADM NO: 2214407
+# ==================================================
+# FILENAME: .gitlab-ci.yml
+# ==================================================
+
 stages:
+  - setup
   - lint
   - format
   - security
@@ -7,39 +17,40 @@ stages:
   - complexity
   - coverage
 
+setup:
+  stage: setup
+  image: python:3.8.18
+  script:
+    - pip install -r requirements.txt
+
 linting:
   stage: lint
   image: python:3.8.18
   script:
-    - pip install -r requirements.txt
-    - flake8 --ignore E501,E302,W503 . # Ignores line too long (E501), expected 2 blank lines (E302) and line break (W503)
+    - flake8 --ignore E501,E302,W503,F401,E402 . # Ignores line too long (E501), expected 2 blank lines (E302) and line break (W503), imported but unused imports for application.app and application.routes which are necessasry (F401), and import not at the top of the page for application.routes which is also needed (E402)
 
 formatting:
   stage: format
   image: python:3.8.18
   script:
-    - pip install -r requirements.txt
     - black .
 
 security_scan:
   stage: security
   image: python:3.8.18
   script:
-    - pip install -r requirements.txt
     - bandit -r .
 
 dependency_check:
   stage: dependency-check
   image: python:3.8.18
   script:
-    - pip install -r requirements.txt
     - safety check
 
 pytest:
   stage: test
   image: python:3.8.18
   script:
-    - pip install -r requirements.txt
     - python -m pytest tests/test_application.py -v
     - python -m pytest tests/test_api.py -v -p no:randomly
   artifacts:
@@ -50,13 +61,11 @@ complexity_check:
   stage: complexity
   image: python:3.8.18
   script:
-    - pip install -r requirements.txt
     - radon cc -a -nb .
 
 coverage_check:
   stage: coverage
   image: python:3.8.18
   script:
-    - pip install -r requirements.txt
     - coverage run -m pytest -v -p no:randomly
     - coverage report -m
