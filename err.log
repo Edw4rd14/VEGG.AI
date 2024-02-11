@@ -504,3 +504,23 @@ Failed to add prediction to history. Error: (sqlite3.OperationalError) unknown f
 [SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
 [parameters: ('output.png', <memory at 0x7fd217a1e7c0>, 31, 'Radish')]
 (Background on this error at: https://sqlalche.me/e/20/e3q8)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001', <memory at 0x7f726cf5bdc0>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.png', <memory at 0x7f726cf5b4c0>, -100, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.webp', <memory at 0x7f726cf5bd00>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: prediction IN ('Bean', 'Bitter Gourd', 'Bottle Gourd', 'Brinjal', 'Broccoli', 'Cabbage', 'Capsicum', 'Carrot', 'Cauliflower', 'Cucumber', 'Papaya', 'Potato', 'Pumpkin', 'Radish', 'Tomato')
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7f726cf5bdc0>, 128, 'Mcspicy')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 12. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 14. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.

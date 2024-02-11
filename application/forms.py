@@ -9,18 +9,13 @@
 
 # Import modules
 from flask_wtf import FlaskForm
-from wtforms import FloatField, SelectField, IntegerField, SubmitField, StringField, PasswordField
-from wtforms.validators import InputRequired, NumberRange, DataRequired, ValidationError
-import re
-import datetime
+from wtforms import SubmitField, StringField, PasswordField
+from wtforms.validators import DataRequired
 
 # =========
 # VARIABLES
 # =========
 input_req = "This input is required."
-
-
-
 
 # ==========
 # LOGIN FORM

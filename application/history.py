@@ -10,8 +10,6 @@
 # Import modules
 import pytz
 from application.models import Entry
-import base64
-import re
 
 # Prediction History Manager class
 class PredictionHistoryManager:

@@ -6,15 +6,16 @@
 # ==================================================
 # FILENAME: test_application.py
 # ==================================================
+# EXPECTED RESULTS: 25 PASSED, 1 SKIPPED, 19 XFAILED
+# ==================================================
 
 # Import modules
 from application.models import Entry
 import pytest
-from bs4 import BeautifulSoup # Parse HTML
+from bs4 import BeautifulSoup
 import base64
 import json
 import pickle
-import datetime
 
 # Get labels
 with open('labels.pickle','rb') as file:

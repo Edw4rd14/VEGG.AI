@@ -6,16 +6,13 @@
 # ==================================================
 # FILENAME: test_api.py
 # ==================================================
+# EXPECTED RESULT: 45 PASSED, 5 XFAILED
+# ==================================================
 
 # Import modules
-from application.models import Entry
 from tests.test_application import image_to_b64
 import pytest
-from bs4 import BeautifulSoup # Parse HTML
-import base64
 import json
-import pickle
-import datetime
 
 # =================
 # RESTful API Tests

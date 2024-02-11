@@ -26,7 +26,7 @@ class Entry(db.Model):
     # Check constraints
     __table_args__ = (
         CheckConstraint("image_size = 31 OR image_size = 128"),
-        CheckConstraint("octet_length(image) > 0"),
+        CheckConstraint("length(image) > 0"),
         CheckConstraint("prediction IN ('Bean', 'Bitter Gourd', 'Bottle Gourd', 'Brinjal', 'Broccoli', 'Cabbage', 'Capsicum', 'Carrot', 'Cauliflower', 'Cucumber', 'Papaya', 'Potato', 'Pumpkin', 'Radish', 'Tomato')"),
         CheckConstraint("LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'")
     )
