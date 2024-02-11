@@ -16,6 +16,7 @@ stages:
   - test
   - complexity
   - coverage
+  - deploy
 
 setup:
   stage: setup
@@ -69,3 +70,10 @@ coverage_check:
   script:
     - coverage run -m pytest -v -p no:randomly
     - coverage report -m
+
+deployment:
+  stage: deploy
+  script:
+    - curl https://api.render.com/deploy/srv-cn49b9ol5elc73cr6i70?key=gD6cN1P9kQA
+  only:
+    - main
