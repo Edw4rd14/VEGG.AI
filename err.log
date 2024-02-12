@@ -1531,34 +1531,6 @@ Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was
 Failed to remove history with ID 14. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
 [SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
-[parameters: ('edw4rd20005@gmail.com', 'qwq', 'TimurGlaz')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
-[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
-[parameters: ('edw4rd20005@gmail.com', 'ddd', 'TmsmdLfie')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
-[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
-[parameters: ('edw4rd20005@gmail.com', 'TTT', 'TmmdeLnfwne')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
-[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
-[parameters: ('edw4rd20005@gmail.com', 'Admin', '123ABCdlf')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
-[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
-[parameters: ('edw4rd20005@gmail.com', 'Admin', 'TimurGlaz')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
-[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
-[parameters: ('edw4rd20005@gmail.com', 'Simmm', 'TimurGlaz')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
-[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
-[parameters: ('edw4rd20005@gmail.com', 'Simmm', 'TimurGlaz')]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
-[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
 [parameters: ('edw4rd20005@gmail.com', 'Simmm', '00000000000000lP')]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
 Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
@@ -1824,6 +1796,94 @@ Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK const
 Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
 [SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
 [parameters: ('0001.jpg', <memory at 0x7fe5f0f85ac0>, -128, 'Cucumber')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 12. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 14. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
+[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
+[parameters: ('a@gmail.com', '', 'ABCDefGE')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
+[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
+[parameters: ('achary@gmail.com', '', 'qwrihbEBI')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
+[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
+[parameters: ('drrrarro@gmail.com', 'zachary', 'fonw')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001', <memory at 0x7fb69ff031c0>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.png', <memory at 0x7fb69ff031c0>, -100, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.webp', <memory at 0x7fb69ff03dc0>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: prediction IN ('Bean', 'Bitter Gourd', 'Bottle Gourd', 'Brinjal', 'Broccoli', 'Cabbage', 'Capsicum', 'Carrot', 'Cauliflower', 'Cucumber', 'Papaya', 'Potato', 'Pumpkin', 'Radish', 'Tomato')
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7fb69ff03f40>, 128, 'Mcspicy')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('', <memory at 0x7fb69ff037c0>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7fb69ff03940>, 1000, 'Mcspicy')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7fb69ff03ac0>, -128, 'Cucumber')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 12. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 13. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to remove history with ID 14. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
+[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
+[parameters: ('a@gmail.com', '', 'ABCDefGE')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
+[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
+[parameters: ('achary@gmail.com', '', 'qwrihbEBI')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add user to database. Error: (sqlite3.IntegrityError) UNIQUE constraint failed: user_database.email
+[SQL: INSERT INTO user_database (email, username, password) VALUES (?, ?, ?)]
+[parameters: ('drrrarro@gmail.com', 'zachary', 'fonw')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001', <memory at 0x7fd986fb4d00>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.png', <memory at 0x7fd986fb4b80>, -100, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.webp', <memory at 0x7fd986fb4d00>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: prediction IN ('Bean', 'Bitter Gourd', 'Bottle Gourd', 'Brinjal', 'Broccoli', 'Cabbage', 'Capsicum', 'Carrot', 'Cauliflower', 'Cucumber', 'Papaya', 'Potato', 'Pumpkin', 'Radish', 'Tomato')
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7fd986fb4b80>, 128, 'Mcspicy')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: LOWER(file_name) LIKE '%.png' OR LOWER(file_name) LIKE '%.jpg'
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('', <memory at 0x7fd986fb4b80>, 31, 'Pumpkin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7fd986fb4400>, 1000, 'Mcspicy')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Failed to add prediction to history. Error: (sqlite3.IntegrityError) CHECK constraint failed: image_size = 31 OR image_size = 128
+[SQL: INSERT INTO prediction_entries (file_name, image, image_size, prediction, timestamp) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP) RETURNING id, timestamp]
+[parameters: ('0001.jpg', <memory at 0x7fd986fb4b80>, -128, 'Cucumber')]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
 Failed to remove history with ID 11. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 Failed to remove history with ID 12. Error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.

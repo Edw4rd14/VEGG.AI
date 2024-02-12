@@ -1,0 +1,182 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="850.4,1744.8" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="545.6,1680" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard sap2010:Annotation.AnnotationText="Open Vegg.AI Application&#xA;" AttachMode="ByInstance" DisplayName="Use Browser Chrome: VEGG.AI" sap:VirtualizedContainerService.HintSize="483.2,1568" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="398e0631-66ab-4299-b6ce-91b2a4ae1f80" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence sap2010:Annotation.AnnotationText="Actions to be completed&#xA;" DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,1307.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Start by clicking Login&#xA;" ClickType="Single" DisplayName="Click 'LOGIN'" sap:VirtualizedContainerService.HintSize="387.2,201.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="398e0631-66ab-4299-b6ce-91b2a4ae1f80" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/login" CvElementArea="851, 770, 233, 54" CvTextArea="936, 787, 62, 20" CvTextArgument="LOGIN" CvType="Button" DesignTimeRectangle="854, 773, 230, 50" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'LOGIN'" FullSelectorArgument="&lt;webctrl id='openPopup' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='openPopup' tag='INPUT' type='button' class='popup-button' aaname='LOGIN' check:text='LOGIN' /&gt;" Guid="4b0464f5-7976-4954-9132-7bb7db160ffc" InformativeScreenshot="79a58f9c7fffca67642f9527a52372c3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Input email of 'admin@gmail.com'&#xA;" ClickBeforeMode="Single" DisplayName="Type Into 'Email'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,262.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="398e0631-66ab-4299-b6ce-91b2a4ae1f80" Text="admin@gmail.com" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/login" CvElementArea="896, 503, 722, 67" CvType="InputBox" DesignTimeRectangle="898, 506, 718, 62" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT email-input'" FullSelectorArgument="&lt;webctrl id='email-input' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='email-input' tag='INPUT' type='text' class='' aaname='' /&gt;" Guid="9718e3ef-1add-42aa-a4e3-18fc2580e8b3" InformativeScreenshot="077a61e7ff2dc633f79b280d9cfc8266.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArea="934, 456, 82, 27" CvTextArgument="EMAIL" CvType="Text" DesignTimeRectangle="933, 448, 82, 45" ElementType="Text" FriendlyName="'Email'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='login-label' aaname='Email' check:innerText='EMAIL' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Input password of 'PassWord123'" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,249.6" sap2010:WorkflowViewState.IdRef="NTypeInto_2" IsPassword="True" ScopeIdentifier="398e0631-66ab-4299-b6ce-91b2a4ae1f80" Text="PassWord123" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/login" CvElementArea="895, 667, 723, 66" CvType="InputBox" DesignTimeRectangle="898, 670, 718, 62" DesignTimeScaleFactor="1.25" ElementType="InputBoxPassword" FriendlyName="'INPUT password-input'" FullSelectorArgument="&lt;webctrl id='password-input' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='password-input' tag='INPUT' type='password' class='' aaname='' /&gt;" Guid="47cd4778-d315-4d7f-89bc-10df3c69a4ca" InformativeScreenshot="923c44d9eb774f53bb12f7dcf94b0b15.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArea="931, 618, 167, 27" CvTextArgument="PASSWORD" CvType="Text" DesignTimeRectangle="933, 611, 165, 45" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Password' tag='LABEL' type='' class='login-label' check:innerText='PASSWORD' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click 'Login', which should redirect to index page" ClickType="Single" DisplayName="Click 'Login'" sap:VirtualizedContainerService.HintSize="387.2,188.8" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="398e0631-66ab-4299-b6ce-91b2a4ae1f80" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/login" CvElementArea="897, 802, 717, 48" CvTextArea="1224, 816, 62, 20" CvTextArgument="LOGIN" CvType="Button" DesignTimeRectangle="898, 802, 718, 50" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Login'" FullSelectorArgument="&lt;webctrl id='login-form-submit' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='login-form-submit' tag='INPUT' type='submit' class='' aaname='Login' check:text='Login' /&gt;" Guid="600b1d3a-8960-4d53-9348-e18c764a9674" InformativeScreenshot="b1f838b86b36bfb4fc5a5edccc1d43b3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="387.2,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Successful!&quot;]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="20f72b787c486ea041301f1a95d9b8e0.jpg" Selector="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" Title="VEGG.AI - Opera" Url="https://vegg-ai.onrender.com/index" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

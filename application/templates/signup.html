@@ -24,7 +24,6 @@ FILENAME: signup.html
               <div>
                   <img src="{{ url_for('static',filename='images/email.png')}}" class="signup-form-img">
                   {{ form.email.label(class='signup-label') }}
-                  <br>
                   {{ form.email(size=32) }}
                   {% if form.email.errors %}
                   <span class="signup-error">{{ form.email.errors[-1] }}</span>
@@ -33,7 +32,6 @@ FILENAME: signup.html
               <div>
                   <img src="{{ url_for('static',filename='images/user.png')}}" class="signup-form-img">
                   {{ form.username.label(class='signup-label') }}
-                  <br>
                   {{ form.username(size=32) }}
                   {% if form.username.errors %}
                   <span class="signup-error">{{ form.username.errors[-1] }}</span>
@@ -42,14 +40,12 @@ FILENAME: signup.html
               <div>
                   <img src="{{ url_for('static',filename='images/pass.png')}}" class="signup-form-img">
                   {{ form.password.label(class='signup-label') }}
-                  <br>
                   {{ form.password(size=32) }}
                   {% if form.password.errors %}
                   <span class="signup-error">{{ form.password.errors[-1] }}</span>
                   {% endif %}
               </div>
               <div>
-                  <br>
                   {% with messages = get_flashed_messages(with_categories=true) %}
                   {% if messages %}
                   {% for category, message in messages %}

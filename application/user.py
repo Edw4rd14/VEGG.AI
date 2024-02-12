@@ -10,13 +10,16 @@
 # Import modules
 from .models import UserEntry
 
-
+# UserManager class
 class UserManager:
     def __init__(self, database, logger, db_err):
         self.database = database
         self.logger = logger
         self.db_err = db_err
 
+    # ========
+    # Add user
+    # ========
     def add_user(self, new_entry):
         try:
             self.database.session.add(new_entry)
@@ -28,6 +31,9 @@ class UserManager:
             if "UNIQUE" in str(e):
                 raise Exception("Email already exists.")
 
+    # ==========
+    # Check user
+    # ==========
     def check_user(self, email, password):
         user = UserEntry.query.filter_by(email=email).first()
         if user:

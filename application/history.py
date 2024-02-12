@@ -18,6 +18,9 @@ class PredictionHistoryManager:
         self.logger = logger
         self.db_err = db_err
 
+    # ===========
+    # Add History
+    # ===========
     def add_prediction(self, new_entry):
         try:
             self.database.session.add(new_entry)

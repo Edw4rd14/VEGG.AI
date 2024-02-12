@@ -1,0 +1,270 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Vegg_AI_Predict" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="850.4,4338.4" sap2010:WorkflowViewState.IdRef="Vegg_AI_Predict_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Vegg_AI_Predict" sap:VirtualizedContainerService.HintSize="545.6,4273.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard sap2010:Annotation.AnnotationText="On Vegg.AI, start off on the /index page." AttachMode="ByInstance" DisplayName="Use Browser Chrome: VEGG.AI" sap:VirtualizedContainerService.HintSize="483.2,4161.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,3913.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click To Classifier button to be redirected to classifier" ClickType="Single" DisplayName="Click 'TO CLASSIFIER'" sap:VirtualizedContainerService.HintSize="387.2,188.8" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" CvElementArea="840, 787, 233, 52" CvTextArea="886, 802, 141, 21" CvTextArgument="TO CLASSIFIER" CvType="Button" DesignTimeRectangle="843, 788, 230, 51" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'TO CLASSIFIER'" FullSelectorArgument="&lt;webctrl id='tc-button' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tc-button' tag='INPUT' type='button' class='fade visible' aaname='TO CLASSIFIER' check:text='TO CLASSIFIER' /&gt;" Guid="444a68bf-65d9-414e-8576-e9507494e0ab" InformativeScreenshot="c38433619919a560465939476a5cd3c0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Test slider for image size selection works." ClickType="Single" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="387.2,188.8" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" CvElementArea="930, 558, 82, 49" CvType="Button" DesignTimeRectangle="935, 561, 75, 43" DesignTimeScaleFactor="1.25" FriendlyName="'SPAN'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;label&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='SPAN' class='slider round' aaname='' /&gt;" Guid="2ae1bb20-c987-40f3-a4b2-4e52dbd74583" InformativeScreenshot="032728fc7b4f896ab214211640fbe51f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click to bring up upload image pop-up." ClickType="Single" DisplayName="Click 'Drag and'" sap:VirtualizedContainerService.HintSize="387.2,188.8" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" DesignTimeRectangle="571, 675, 775, 550" DesignTimeScaleFactor="1.25" FriendlyName="'Drag and'" FullSelectorArgument="&lt;webctrl id='img-view' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='img-view' tag='DIV' type='' class='' aaname='                                                                                                 ' check:innerText='Drag and drop or click here&amp;#xD;&amp;#xA;to upload image&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;Upload any images from your desktop' /&gt;" Guid="e7f69379-7d40-4c87-a3c1-3e92b07449d4" InformativeScreenshot="db6adc3ef0b8858b90ba7c23f3dd6f3f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Input local file path for image file to test." ClickBeforeMode="Single" DisplayName="Type Into '&quot;C:\Users\edw4r\OneDriv…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,249.6" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Text="C:\Users\edw4r\OneDrive - Singapore Polytechnic\Documents\SP notes\Y2S2\DELE\DELE_CA1\2214407_DELE_PARTA\Dataset for CA1 part A\validation\Broccoli\1201.jpg" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CvElementArea="228, 505, 456, 31" CvType="InputBox" DesignTimeRectangle="234, 511, 423, 20" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'&quot;C:\Users\edw4r\OneDriv…'" FullSelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" Guid="18f4abee-b82e-4a85-9086-3b9b68cfce98" InformativeScreenshot="64d923b5e4519e2f1cb454871fc24fdf.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Input local image file to test upload image." ClickType="Single" DisplayName="Click 'unchecked'" sap:VirtualizedContainerService.HintSize="387.2,188.8" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CvElementArea="695, 541, 111, 34" CvTextArea="730, 551, 38, 16" CvTextArgument="Qpen" CvType="Button" DesignTimeRectangle="696, 543, 110, 33" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Open' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Open' check:text='unchecked' /&gt;" Guid="c344fb7f-a581-47f0-aa8b-fc550e2287a2" InformativeScreenshot="853134ab2915d2302dfa472039cb3083.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Submit image for prediction." ClickType="Single" DisplayName="Click 'INPUT predict'" sap:VirtualizedContainerService.HintSize="387.2,188.8" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" CvElementArea="1101, 843, 233, 54" CvTextArea="1180, 860, 75, 20" CvTextArgument="SUBMIT" CvType="Button" DesignTimeRectangle="1104, 844, 230, 51" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'INPUT predict'" FullSelectorArgument="&lt;webctrl id='predict' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='predict' tag='INPUT' type='submit' class='' aaname='' /&gt;" Guid="0278ba07-584b-411e-9d12-5c5e6f6d6c25" InformativeScreenshot="6018ce5779ebf5203282560da4e2f7f4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <Delay Duration="00:00:20" sap:VirtualizedContainerService.HintSize="387.2,90.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Test generate random image for prediction." ClickType="Single" DisplayName="Click 'GENRATE RANDOM'" sap:VirtualizedContainerService.HintSize="387.2,188.8" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" CvElementArea="581, 251, 231, 57" CvTextArea="605, 268, 182, 21" CvTextArgument="GENRATE RANDOM" CvType="Button" DesignTimeRectangle="583, 251, 230, 55" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'GENRATE RANDOM'" FullSelectorArgument="&lt;webctrl id='random-image-button' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='random-image-button' tag='INPUT' type='button' class='' aaname='GENRATE RANDOM' check:text='GENRATE RANDOM' /&gt;" Guid="2e411f85-c4c2-4bf0-8e32-1f3e9fd6c047" InformativeScreenshot="756aa1139306332b070d5f0a5c0f11af.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Submit image for prediction.&#xD;&#xA;" ClickType="Single" DisplayName="Click 'INPUT predict'" sap:VirtualizedContainerService.HintSize="387.2,201.6" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" CvElementArea="1101, 250, 234, 58" CvTextArea="1180, 268, 76, 21" CvTextArgument="SUBMIT" CvType="Button" DesignTimeRectangle="1104, 251, 230, 55" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'INPUT predict'" FullSelectorArgument="&lt;webctrl id='predict' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='predict' tag='INPUT' type='submit' class='' aaname='' /&gt;" Guid="196a5741-f02e-4bf1-a885-9119aea55fc0" InformativeScreenshot="6c90c5dd4f21334777e7e64456625d51.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="387.2,90.4" sap2010:WorkflowViewState.IdRef="Delay_2" />
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Test clear input." ClickType="Single" DisplayName="Click 'CLEAR'" sap:VirtualizedContainerService.HintSize="387.2,188.8" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" CvElementArea="840, 279, 235, 54" CvTextArea="925, 296, 65, 20" CvTextArgument="CLEAR" CvType="Button" DesignTimeRectangle="843, 280, 230, 51" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'CLEAR'" FullSelectorArgument="&lt;webctrl id='clear-form' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='clear-form' tag='INPUT' type='button' class='' aaname='CLEAR' check:text='CLEAR' /&gt;" Guid="1f20c94a-7283-486f-9e1b-df43d463ac5f" InformativeScreenshot="86a4615ecca4f35b14d522a47083afd9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NKeyboardShortcuts ActivateBefore="True" sap2010:Annotation.AnnotationText="Refresh page." ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="387.2,209.6" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(ctrl)]r[u(ctrl)][u(hk)]" Version="V3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NKeyboardShortcuts>
+            <uix:NMouseScroll KeyModifiers="{x:Null}" sap2010:Annotation.AnnotationText="Scroll to history." Direction="Down" DisplayName="Mouse Scroll" sap:VirtualizedContainerService.HintSize="387.2,269.6" sap2010:WorkflowViewState.IdRef="NMouseScroll_1" InteractionMode="HardwareEvents" MovementUnits="10" Version="V3">
+              <uix:NMouseScroll.SearchedElement>
+                <uix:SearchedElement>
+                  <uix:SearchedElement.Target>
+                    <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" CvTextArea="216, 600, 348, 45" CvTextArgument="Prediction History" CvType="Text" DesignTimeRectangle="218, 588, 346, 60" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Prediction History'" FullSelectorArgument="&lt;webctrl id='history-title' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl id='history-title' tag='H2' type='' class='' aaname='Prediction History' check:innerText='Prediction History' /&gt;" Guid="31f1a604-0dad-44ec-81fb-26f8fb936ff5" InformativeScreenshot="bf03320a044cd2cc7af4c29c71f009d9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                  </uix:SearchedElement.Target>
+                  <uix:SearchedElement.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:SearchedElement.Timeout>
+                </uix:SearchedElement>
+              </uix:NMouseScroll.SearchedElement>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NMouseScroll>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Test ascending and descending sort." ClickType="Double" DisplayName="Click 'ID'" sap:VirtualizedContainerService.HintSize="387.2,188.8" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" CvTextArea="230, 545, 22, 20" CvTextArgument="ID" CvType="Text" DesignTimeRectangle="218, 522, 51, 63" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'ID'" FullSelectorArgument="&lt;webctrl id='history-table' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl id='history-table' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='sortable' aaname='ID' check:innerText='ID' /&gt;" Guid="e09a3960-e6f8-46b0-8804-2aa1adff512d" InformativeScreenshot="bdfaf60ae81caa85f3ccb55f10cb08db.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Test table search input.&#xD;&#xA;" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT search-input'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,262.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Text="Broccoli" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" CvElementArea="1342, 452, 357, 43" CvType="InputBox" DesignTimeRectangle="1344, 467, 356, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT search-input'" FullSelectorArgument="&lt;webctrl id='search-input' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='search-input' tag='INPUT' type='text' class='' aaname='' /&gt;" Guid="17452a6f-09b5-4796-9a09-19f18d00b8df" InformativeScreenshot="22d801084e56e555f13ebfc55c531dcc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Test delete history by ID." ClickType="Single" DisplayName="Click 'Delete'" sap:VirtualizedContainerService.HintSize="387.2,188.8" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e877ff63-cd00-4614-a991-5eff4fea7458" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://vegg-ai.onrender.com/index" CvElementArea="1444, 614, 231, 51" CvTextArea="1525, 630, 70, 20" CvTextArgument="DELETE" CvType="Button" DesignTimeRectangle="1446, 615, 230, 51" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Delete'" FullSelectorArgument="&lt;webctrl id='history-table' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='history-table' tag='TABLE' /&gt;&lt;webctrl type='submit' tag='INPUT' class='history-delete mx-auto my-auto' aaname='Delete' check:text='Delete' /&gt;" Guid="4af53b89-835f-4ad4-8600-256d3bb13723" InformativeScreenshot="5fdb44aeccb804ac7a441bee350c2ebd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="387.2,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Successful!&quot;]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="43a972f9868f7b4d6c7c8790b45fd11b.jpg" Selector="&lt;html app='chrome.exe' title='VEGG.AI' /&gt;" Title="VEGG.AI - Opera" Url="https://vegg-ai.onrender.com/index" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

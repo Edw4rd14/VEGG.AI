@@ -563,21 +563,33 @@ LOGIN
   opacity: 1;
 }
 
-#login-title, #signup-title {
+#login-title {
   font-size: 40px;
 }
 
-.login-label, .signup-label {
+#signup-title {
+  font-size: 34px;
+}
+
+.signup-label {
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #14410f;
+  margin-top: 8px;
+}
+
+.signup-form-img {
+  margin-bottom: 6px!important;
+}
+
+.login-label{
   font-weight: bold;
   font-size: 24px;
   text-transform: uppercase;
   margin-top: 26px;
   margin-bottom: -6px;
   color: #14410f;
-}
-
-.signup-label {
-  margin-top: 8px;
 }
 
 .login-form-img, .signup-form-img {
@@ -590,6 +602,10 @@ LOGIN
   margin: 0 0;
 }
 
+#signup-form-submit {
+  margin-top: 8px;
+}
+
 #email-input, #password-input, #signup-username-input, #signup-email-input, #signup-password-input {
   width: 100%;
   padding: 12px 20px;
@@ -599,6 +615,10 @@ LOGIN
   box-sizing: border-box;
   border-radius: 4px;
   background-color: #f1f1f1; 
+}
+
+#signup-username-input, #signup-email-input, #signup-password-input {
+  margin: 0 0!important;
 }
 
 #email-input::placeholder, #password-input::placeholder, #signup-username-input::placeholder, #signup-email-input::placeholder, #signup-password-input::placeholder {
