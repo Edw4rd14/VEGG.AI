@@ -37,6 +37,7 @@ const fileName = document.getElementById('file-name');
 const predict_button = document.getElementById('predict');
 var result = document.getElementById('result');
 const clear_button = document.getElementById('clear-form');
+const randomImageBtn = document.getElementById('random-image-button');
 
 // HANDLE FILE
 let base64ImageData;
@@ -56,7 +57,6 @@ const handleFile = (file) => {
         imgView.style.backgroundColor = 'white';
         fileName.textContent = `FILE NAME: ${file.name}`;
         base64ImageData = imgLink;
-        console.log(base64ImageData)
         result.style.display = 'none';
         sessionStorage.setItem('fileName',file.name)
     };
@@ -75,22 +75,44 @@ const handleDrop = (e) => {
         handleFile(files[0]);
     }
 };
+// GET RANDOM IMAGE AND SET
+const setRandomImage = () => {
+    $.ajax({
+        url: '/random-prediction-image',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            sessionStorage.setItem('fileName', data.filename);
+            base64ImageData = `data:image/jpeg;base64,${data.base64_image}`;
+            imgView.style.backgroundImage = `url(data:image/jpeg;base64,${data.base64_image})`;
+            imgView.textContent = '';
+            imgView.style.backgroundColor = 'white';
+            fileName.textContent = `FILE NAME: ${data.filename}`;
+            result.style.display = 'none';
+        },
+        error: function (error) {
+            console.error('Error fetching random image:', error);
+        }
+    });
+}
 // EVENT LISTENERS 
 dropArea.addEventListener('dragover', preventDefaults);
 dropArea.addEventListener('drop', handleDrop);
 imageFile.addEventListener('change', () => handleFile(imageFile.files[0]));
+randomImageBtn.addEventListener('click', setRandomImage);
+
 
 // ======================
 // PAGE REFRESH REDIRECTS
 // ======================
 
 // FUNCTION TO MAKE SUBMIT BUTTON SCROLL TO FORM UPON REFRESH
-function rememberRedirectTarget(target) {
+const rememberRedirectTarget = (target) => {
     // Store the ID of the form which I want the website to redirect to upon refresh
     sessionStorage.setItem('redirectTarget', target);
 }
 // REDIRECT
-window.onload = function() {
+window.onload = () => {
     // REDIRECT ID ELEMENT
     const redirectTarget = sessionStorage.getItem('redirectTarget');
     // IF REDIRECT TARGET EXISTS
@@ -122,7 +144,7 @@ var storedState = sessionStorage.getItem('checkboxState');
 var isChecked = storedState == 'true';
 checkbox.checked = isChecked;
 // HANDLE CHECKBOX CHANGE
-function handleCheckboxChange() {
+const handleCheckboxChange = () => {
     // CHECK CURRENT STATE
     isChecked = checkbox.checked;
     if (isChecked) {
@@ -186,7 +208,7 @@ clear_button.addEventListener('click',(e)=>{
 // =============
 
 // SEARCH TABLE
-document.getElementById("search-input").addEventListener("keyup", function() {
+document.getElementById("search-input").addEventListener("keyup", () => {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("search-input");
     filter = input.value.toUpperCase();
@@ -211,7 +233,7 @@ document.getElementById("search-input").addEventListener("keyup", function() {
 });
 
 // SORT COLUMNS (ID AND TIMESTAMP) [REFFERRED TO https://www.youtube.com/watch?v=8SL_hM1a0yo]
-function sortTableByColumn(table, column, asc = true) {
+const sortTableByColumn = (table, column, asc = true) => {
     const dirModifier = asc ? 1: -1;
     const tBody = table.tBodies[0];
     const rows = Array.from(tBody.querySelectorAll('tr'));
@@ -241,9 +263,10 @@ document.querySelectorAll('.table-sortable th').forEach(headerCell => {
             sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
         }
     })
-})
+});
+
 // FILTER TABLE
-function filterTable() {
+const filterTable = () => {
     // Get elements required
     var selects = document.getElementsByTagName("select");
     var table = document.getElementById("history-table");
@@ -274,4 +297,4 @@ function filterTable() {
             row.style.display = "none";
         }
     }
-}
+};

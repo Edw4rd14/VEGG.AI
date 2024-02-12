@@ -8,21 +8,25 @@
 # ==================================================
 
 # Import modules
-from application import app, db
-from application.models import Entry
-from application.history import PredictionHistoryManager
-from application.forms import LoginForm
 from flask import render_template, request, flash, redirect, url_for, jsonify, session
 from flask_cors import cross_origin
 from PIL import Image
 from tensorflow.keras.preprocessing import image
+from application import app, db
+from application.models import Entry
+from application.history import PredictionHistoryManager
+from application.forms import LoginForm
 import numpy as np
 import re
 import base64
 import requests
 import json
+import secrets
 import pickle
 import logging
+import os
+import random
+
 
 # ~~~~~~~~~~~~~~~~~~~~~
 # Functions & Variables
@@ -212,6 +216,24 @@ def predict():
             )
     else:
         return render_template("index.html", history=history_manager.get_history())
+
+
+# ===========
+# SERVE IMAGE
+# ===========
+
+# Serve random image
+@app.route("/random-prediction-image")
+def serve_random_image():
+    image_dir = "./prediction-testing-images"
+    all_images = [f for f in os.listdir(image_dir) if f.endswith((".jpg", ".png"))]
+    if not all_images:
+        return "No images found in the directory."
+    random_image_filename = secrets.choice(all_images)
+    random_image_path = os.path.join(image_dir, random_image_filename)
+    with open(random_image_path, "rb") as image_file:
+        base64_image = base64.b64encode(image_file.read()).decode("utf-8")
+    return {"filename": random_image_filename, "base64_image": base64_image}
 
 
 # ==========

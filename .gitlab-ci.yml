@@ -8,22 +8,14 @@
 # ==================================================
 
 stages:
-  - lint
   - format
+  - lint
   - security
   - dependency-check
   - test
   - complexity
   - coverage
   - deploy
-
-linting:
-  stage: lint
-  image: python:3.8.18
-  script:
-    - pip install pip --upgrade
-    - pip install -r requirements.txt
-    - flake8 --ignore E501,E302,W503,F401,E402 . # Ignores line too long (E501), expected 2 blank lines (E302) and line break (W503), imported but unused imports for application.app and application.routes which are necessasry (F401), and import not at the top of the page for application.routes which is also needed (E402)
 
 formatting:
   stage: format
@@ -32,6 +24,14 @@ formatting:
     - pip install pip --upgrade
     - pip install -r requirements.txt
     - black .
+
+linting:
+  stage: lint
+  image: python:3.8.18
+  script:
+    - pip install pip --upgrade
+    - pip install -r requirements.txt
+    - flake8 --ignore E501,E302,W503,F401,E402 . # Ignores line too long (E501), expected 2 blank lines (E302) and line break (W503), imported but unused imports for application.app and application.routes which are necessasry (F401), and import not at the top of the page for application.routes and from .models import Entry which is also needed (E402)
 
 security_scan:
   stage: security

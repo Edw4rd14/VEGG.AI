@@ -11,14 +11,14 @@ FILENAME: login.js
 
 // LOGIN POP-UP
 // Function to toggle the popup
-function togglePopup() {
+const togglePopup = () => {
     document.getElementById("loginPopup").classList.toggle("active");
 }
   
-function closePopupOnClickOutside(event) {
+const closePopupOnClickOutside = (e) => {
     var loginPopup = document.getElementById("loginPopup");
     // Check if the click is outside the popup container
-    if (event.target === loginPopup) {
+    if (e.target === loginPopup) {
         togglePopup();
     }
 }
@@ -35,8 +35,8 @@ loginPopup.addEventListener("click", closePopupOnClickOutside);
 // Toggle pop-up on click
 openPopupButton.addEventListener("click", togglePopup);
 // Prevent closing when clicking within popup container
-popupContainer.addEventListener("click", function(event) {
-    event.stopPropagation();
+popupContainer.addEventListener("click", (e) => {
+    e.stopPropagation();
 });
 
 // Edit footer to be at the bottom

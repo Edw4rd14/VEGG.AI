@@ -10,7 +10,7 @@ FILENAME: main.js
 */
 
 // SCROLL ANIMATION
-function checkVisibility() {
+const checkVisibility = () => {
     var pageTop = $(document).scrollTop();
     var pageBottom = pageTop + $(window).height();
     var tags = $(".fade");

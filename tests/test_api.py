@@ -18,10 +18,31 @@ import json
 # RESTful API Tests
 # =================
 class TestRESTful:
+    """Tests for RESTful APIs in the application"""
+
+    @staticmethod
+    def add_post(client, data):
+        """Return client post for add API"""
+        return client.post(
+            "/api/add",
+            data=json.dumps(data),
+            content_type="application/json",
+            follow_redirects=True,
+        )
+
+    @staticmethod
+    def format_data(entry):
+        """Format data dictionary"""
+        return {
+            "file_name": entry[0],
+            "image": image_to_b64(entry[1]),
+            "image_size": entry[2],
+            "prediction": entry[3],
+        }
+
     # Unit testing for add API [VALIDITY TESTING]
     # Check that:
     # - The table constraints allow valid values from being added
-    @classmethod
     @pytest.mark.parametrize(
         "entry_list",
         [
@@ -37,19 +58,9 @@ class TestRESTful:
             ["0052.png", "./prediction-testing-images/0052.jpg", 128, "Potato"],
         ],
     )
-    def test_add_api(self, client, entry_list):
-        data = {
-            "file_name": entry_list[0],
-            "image": image_to_b64(entry_list[1]),
-            "image_size": entry_list[2],
-            "prediction": entry_list[3],
-        }
-        response = client.post(
-            "/api/add",
-            data=json.dumps(data),
-            content_type="application/json",
-            follow_redirects=True,
-        )
+    def test_add_api_valid(self, client, entry_list):
+        """Test add entry API with valid inputs"""
+        response = self.add_post(client=client, data=self.format_data(entry_list))
         # Assert statements
         assert response.status_code == 200
         assert response.headers["Content-Type"] == "application/json"
@@ -60,7 +71,6 @@ class TestRESTful:
     # Check that:
     # - The table constraints do prevent incorrect values from being added
     # - Utilize err.log to verify that the table constraint check failed
-    @classmethod
     @pytest.mark.xfail(reason="Incorrect file name, image, image size or prediction")
     @pytest.mark.parametrize(
         "entry_list",
@@ -72,19 +82,9 @@ class TestRESTful:
             ["0001.jpg", "", 128, "Cucumber"],
         ],
     )
-    def test_add_api_incorrect(self, client, entry_list):
-        data = {
-            "file_name": entry_list[0],
-            "image": image_to_b64(entry_list[1]),
-            "image_size": entry_list[2],
-            "prediction": entry_list[3],
-        }
-        response = client.post(
-            "/api/add",
-            data=json.dumps(data),
-            content_type="application/json",
-            follow_redirects=True,
-        )
+    def test_add_api_invalid(self, client, entry_list):
+        """Test add entry API with invalid inputs"""
+        response = self.add_post(client=client, data=self.format_data(entry_list))
         # Assert statements
         response_body = json.loads(response.get_data(as_text=True))
         # These should also FAIL as the table constraints should prevent the values from being added, hence these checks should return FALSE for xfail flag to be correctly shown
@@ -92,10 +92,9 @@ class TestRESTful:
         assert response.headers["Content-Type"] == "application/json"
         assert response_body["id"]
 
-    # Unit testing for get API
-    @classmethod
+    # Unit testing for get API [VALIDITY TESTING]
     @pytest.mark.parametrize(
-        "entry_list",
+        "entry_id, file_name, image_path, image_size, prediction",
         [
             [1, "0001.jpg", "./prediction-testing-images/0001.jpg", 128, "Cabbage"],
             [2, "0001.jpg", "./prediction-testing-images/0001.jpg", 31, "Cabbage"],
@@ -109,37 +108,42 @@ class TestRESTful:
             [10, "0052.png", "./prediction-testing-images/0052.jpg", 128, "Potato"],
         ],
     )
-    def test_get_api(self, client, entry_list):
+    def test_get_api(
+        self, client, entry_id, file_name, image_path, image_size, prediction
+    ):
+        """Test get API"""
         # Test the get API
-        response = client.get(f"/api/get/{entry_list[0]}")
+        response = client.get(f"/api/get/{entry_id}")
         response_body = json.loads(response.get_data(as_text=True))
         # Assert statements
         assert response.status_code == 200
         assert response.headers["Content-Type"] == "application/json"
-        assert response_body["id"] == entry_list[0]
-        assert response_body["file_name"] == entry_list[1]
+        assert response_body["id"] == entry_id
+        assert response_body["file_name"] == file_name
         assert "base64," in response_body["image"]
-        assert response_body["image_size"] == entry_list[3]
-        assert response_body["prediction"] == entry_list[4]
+        assert response_body["image_size"] == image_size
+        assert response_body["prediction"] == prediction
 
-    # Unit testing for delete API
+    # Unit testing for delete API [VALIDITY TESTING]
     @staticmethod
     @pytest.mark.parametrize(
         "entry_list", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     )
     def test_delete_api(client, entry_list):
+        """Test delete API"""
         response = client.post(f"/api/delete/{entry_list}")
         assert response.status_code == 200
         assert json.loads(response.get_data(as_text=True))["result"] == "Success"
 
-    # Testing to check if delete API actually removed all the entries
+    # Testing to check if delete API actually removed all the entries ['VALIDITY TESTING]
     @staticmethod
     def test_empty_history(client):
+        """Test empty history to ensure all entries were removed"""
         response = client.get("/api/get")
         history = json.loads(response.get_data(as_text=True))
         assert history == []
 
-    # Unit testing for predict API
+    # Unit testing for predict API [VALIDITY TESTING]
     @staticmethod
     @pytest.mark.filterwarnings("ignore")
     @pytest.mark.parametrize(
@@ -157,7 +161,8 @@ class TestRESTful:
             ["./prediction-testing-images/0052.jpg", 128, "Potato"],
         ],
     )
-    def test_prediction(client, entry_list):
+    def test_prediction_valid(client, entry_list):
+        """Test prediction API with valid inputs"""
         data = {
             "image": image_to_b64(entry_list[0]),
             "image_size": entry_list[1],

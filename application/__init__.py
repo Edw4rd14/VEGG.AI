@@ -25,6 +25,8 @@ app.config.from_pyfile(filename="config.cfg", silent=False)
 # Initialize database
 with app.app_context():
     db.init_app(app)
+    from .models import Entry
+
     db.create_all()
     db.session.commit()
     print("\nDatabase is running...\n")
