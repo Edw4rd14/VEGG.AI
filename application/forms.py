@@ -29,12 +29,12 @@ class LoginForm(FlaskForm):
             Email(message="Invalid email address."),
         ],
         render_kw={"placeholder": "Enter your email...", "id": "email-input"},
-    )  # Username: Admin
+    )  # Username: admin@gmail.com
     password = PasswordField(
         "Password",
         validators=[DataRequired(message=input_req)],
         render_kw={"placeholder": "Enter your password...", "id": "password-input"},
-    )  # Password: 123ABC
+    )  # Password: PassWord123
     submit = SubmitField("Login", render_kw={"id": "login-form-submit"})
 
 
