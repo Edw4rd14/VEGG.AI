@@ -121,7 +121,7 @@ class TestLogin:
             "/login",
             data={
                 "email": "admin@gmail.com",
-                "password": "123ABC",
+                "password": "PassWord123",
                 "csrf_token": csrf_token,
             },
             follow_redirects=True,

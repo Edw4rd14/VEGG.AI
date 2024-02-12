@@ -164,7 +164,7 @@ def login():
                 email=login_form.email.data, password=login_form.password.data
             ) or (
                 login_form.email.data == "admin@gmail.com"
-                and login_form.password.data == "123ABC"
+                and login_form.password.data == "PassWord123"
             ):
                 # Clear flag and redirect to index page
                 session.pop("login_failed", None)

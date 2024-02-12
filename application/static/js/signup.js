@@ -9,6 +9,11 @@ FILENAME: signup.js
 ==================================================
 */
 
+// Edit footer to be at the bottom
+var footer = document.getElementById('footer');
+footer.style.position = 'absolute';
+footer.style.bottom = '0';
+
 // LOGIN POP-UP
 // Function to toggle the popup
 const togglePopup = () => {
@@ -38,8 +43,3 @@ signupButton.addEventListener("click", togglePopup);
 popupContainer.addEventListener("click", (e) => {
     e.stopPropagation();
 });
-
-// Edit footer to be at the bottom
-var footer = document.getElementById('footer');
-footer.style.position = 'absolute';
-footer.style.bottom = '0';

@@ -15,7 +15,9 @@ click==8.0.2
 colorama==0.4.6
 coverage==7.4.1
 cryptography==42.0.2
+dnspython==2.5.0
 dparse==0.6.4b0
+email-validator==2.1.0.post1
 exceptiongroup==1.2.0
 flake8==4.0.1
 Flask==2.2.5
