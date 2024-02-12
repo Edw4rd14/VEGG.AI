@@ -13,9 +13,10 @@ from flask_cors import cross_origin
 from PIL import Image
 from tensorflow.keras.preprocessing import image
 from application import app, db
-from application.models import Entry
+from application.models import Entry, UserEntry
 from application.history import PredictionHistoryManager
-from application.forms import LoginForm
+from application.forms import LoginForm, SignUpForm
+from application.user import UserManager
 import numpy as np
 import re
 import base64
@@ -65,6 +66,11 @@ logger.addHandler(file_handler)
 # PREDICTION HISTORY MANAGER
 # ==========================
 history_manager = PredictionHistoryManager(database=db, logger=logger, db_err=db_err)
+
+# ====================
+# USER HISTORY MANAGER
+# ====================
+user_manager = UserManager(database=db, logger=logger, db_err=db_err)
 
 # ===========
 # Parse Image
@@ -143,6 +149,7 @@ def root():
 # Login page
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    # Instantiate login form
     login_form = LoginForm()
     # Clear login failed flag
     session.pop("login_failed", None)
@@ -150,11 +157,13 @@ def login():
     if request.method == "POST":
         # Flag for login failed first
         session["login_failed"] = True
-        # Validate input
+        # Validate submit
         if login_form.validate_on_submit():
             # If username and password are correct
-            if (
-                login_form.username.data == "Admin"
+            if user_manager.check_user(
+                email=login_form.email.data, password=login_form.password.data
+            ) or (
+                login_form.email.data == "admin@gmail.com"
                 and login_form.password.data == "123ABC"
             ):
                 # Clear flag and redirect to index page
@@ -163,9 +172,56 @@ def login():
             else:
                 # If incorrect, flash error message
                 flash(message="Incorrect Credentials.", category="danger")
+    # Return login
     return render_template(
         "login.html",
         form=login_form,
+        show_cards=False,
+        show_button=False,
+        hide_navbar=True,
+    )
+
+
+# Signup page
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    # Instantiate Sign up form
+    signup_form = SignUpForm()
+    # Clear sign up failed flag
+    session.pop("signup_failed", None)
+    # Check if method is POST
+    if request.method == "POST":
+        # Flag sign up failed
+        session["signup_failed"] = True
+        # Validate submit
+        if signup_form.validate_on_submit():
+            try:
+                # Email, username, and password
+                email, username, password = (
+                    signup_form.email.data,
+                    signup_form.username.data,
+                    signup_form.password.data,
+                )
+                # Validate it is not empty
+                if email and username and password:
+                    # Set up entry
+                    new_entry = UserEntry(
+                        email=email, username=username, password=password
+                    )
+                    # Add user
+                    if user_manager.add_user(new_entry):
+                        session.pop("signup_failed", None)
+                        return redirect(url_for("login"))
+                # Raise error
+                raise Exception("An error occurred. Please try again later.")
+            # Catch errors
+            except Exception as e:
+                # If incorrect, flash error message
+                flash(message=e, category="danger")
+    # Return sign up
+    return render_template(
+        "signup.html",
+        form=signup_form,
         show_cards=False,
         show_button=False,
         hide_navbar=True,
@@ -261,6 +317,35 @@ def remove(history_id):
 # ============
 # RESTFUL APIs
 # ============
+
+
+# Sign up API
+@app.route("/api/signup", methods=["POST"])
+def api_signup():
+    # Get data
+    email, username, password = (
+        request.json["email"],
+        request.json["username"],
+        request.json["password"],
+    )
+    # Add user entry
+    new_user = UserEntry(email=email, username=username, password=password)
+    # Add user entry to database
+    result = user_manager.add_user(new_entry=new_user)
+    # Return result
+    return jsonify({"id": result})
+
+
+# Login API
+@app.route("/api/login", methods=["POST"])
+def api_login():
+    # Get data
+    email, password = request.json["email"], request.json["password"]
+    # Check user
+    result = user_manager.check_user(email, password)
+    # Return result
+    return jsonify({"created": result})
+
 
 # API TESTING
 # Add history API

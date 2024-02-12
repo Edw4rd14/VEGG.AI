@@ -6,13 +6,17 @@
 # ==================================================
 # FILENAME: test_api.py
 # ==================================================
-# EXPECTED RESULT: 45 PASSED, 5 XFAILED
+# EXPECTED RESULT: 49 PASSED, 11 XFAILED
 # ==================================================
 
 # Import modules
 from tests.test_application import image_to_b64
 import pytest
 import json
+
+# ==============================================================================
+# ! PLEASE REMEMBER TO RUN WITH -p no:randomly IF PYTEST-RANDOMLY IS INSTALLED !
+# ==============================================================================
 
 # =================
 # RESTful API Tests
@@ -40,6 +44,60 @@ class TestRESTful:
             "prediction": entry[3],
         }
 
+    @staticmethod
+    def post_user(client, email, username, password):
+        """Return client post for sign up API"""
+        return client.post(
+            "/api/signup",
+            data=json.dumps(
+                {"email": email, "username": username, "password": password}
+            ),
+            content_type="application/json",
+            follow_redirects=True,
+        )
+
+    @staticmethod
+    def assert_response(response):
+        response_body = json.loads(response.get_data(as_text=True))
+        # Assert statements
+        assert response.status_code == 200
+        assert response.headers["Content-Type"] == "application/json"
+        assert response_body["id"]
+
+    # Unit testing for Signup API [VALIDITY TESTING]
+    # Check that:
+    # - The sign up works for users that provide valid inputs
+    @pytest.mark.parametrize(
+        "entry_list",
+        [
+            ["a@gmail.com", "user1", "ABCDefGE"],
+            ["hznneyang@gmail.com", "zhnyang", "qweqeQRQIQ"],
+            ["achary@gmail.com", "dario", "qwrihbEBI"],
+            ["drrrarro@gmail.com", "zachary", "fonwfibEFIBW"],
+        ],
+    )
+    def test_signup_api_valid(self, client, entry_list):
+        """Test signup API"""
+        response = self.post_user(client, entry_list[0], entry_list[1], entry_list[2])
+        self.assert_response(response)
+
+    # Unit testing for Signup API [EXPECTED FAILURE TESTING]
+    # Check that:
+    # - The sign up works for users that provide valid inputs
+    @pytest.mark.xfail(reason="Invalid inputs")
+    @pytest.mark.parametrize(
+        "entry_list",
+        [
+            ["a@gmail.com", "", "ABCDefGE"],
+            ["achary@gmail.com", "", "qwrihbEBI"],
+            ["drrrarro@gmail.com", "zachary", "fonw"],
+        ],
+    )
+    def test_signup_api_invalid(self, client, entry_list):
+        """Test signup API"""
+        response = self.post_user(client, entry_list[0], entry_list[1], entry_list[2])
+        self.assert_response(response)
+
     # Unit testing for add API [VALIDITY TESTING]
     # Check that:
     # - The table constraints allow valid values from being added
@@ -61,11 +119,7 @@ class TestRESTful:
     def test_add_api_valid(self, client, entry_list):
         """Test add entry API with valid inputs"""
         response = self.add_post(client=client, data=self.format_data(entry_list))
-        # Assert statements
-        assert response.status_code == 200
-        assert response.headers["Content-Type"] == "application/json"
-        response_body = json.loads(response.get_data(as_text=True))
-        assert response_body["id"]
+        self.assert_response(response)
 
     # Unit testing for add API [EXPECTED FAILURE TESTING]
     # Check that:
@@ -80,17 +134,17 @@ class TestRESTful:
             ["0001.webp", "./prediction-testing-images/0001.jpg", 31, "Pumpkin"],
             ["0001.jpg", "./prediction-testing-images/0001.jpg", 128, "Mcspicy"],
             ["0001.jpg", "", 128, "Cucumber"],
+            ["", "./prediction-testing-images/0001.jpg", 31, "Pumpkin"],
+            ["0001.jpg", "./prediction-testing-images/0001.jpg", 1000, "Mcspicy"],
+            ["0001.jpg", "./prediction-testing-images/0001.jpg", -128, "Cucumber"],
         ],
     )
     def test_add_api_invalid(self, client, entry_list):
         """Test add entry API with invalid inputs"""
         response = self.add_post(client=client, data=self.format_data(entry_list))
         # Assert statements
-        response_body = json.loads(response.get_data(as_text=True))
         # These should also FAIL as the table constraints should prevent the values from being added, hence these checks should return FALSE for xfail flag to be correctly shown
-        assert response.status_code == 200
-        assert response.headers["Content-Type"] == "application/json"
-        assert response_body["id"]
+        self.assert_response(response)
 
     # Unit testing for get API [VALIDITY TESTING]
     @pytest.mark.parametrize(
@@ -135,7 +189,7 @@ class TestRESTful:
         assert response.status_code == 200
         assert json.loads(response.get_data(as_text=True))["result"] == "Success"
 
-    # Testing to check if delete API actually removed all the entries ['VALIDITY TESTING]
+    # Testing to check if delete API actually removed all the entries [VALIDITY TESTING]
     @staticmethod
     def test_empty_history(client):
         """Test empty history to ensure all entries were removed"""

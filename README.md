@@ -63,7 +63,7 @@ REPOSITORY: CA2-DAAA2B04-2214407-EDWARD-WEBAPP
 
 - DLApp-CICD-Branch => Issue #13
 
-- DLApp-Additional-Branch => Issue #14
+- DLApp-Additional-Branch => Issue #16
 
 Total issues: 15
 

@@ -9,5 +9,6 @@
 
 # Skips "assert" warnings as assert was used entirely in Pytest [B101]
 # Skips "blacklist" warnings for Pickle being unsafe [B301 and B403]
+# Skips hardcoded password string (wrongly detected for password_req in forms.py) [B105]
 [bandit]
-skips: B101,B403,B301
+skips: B101,B403,B301,B105

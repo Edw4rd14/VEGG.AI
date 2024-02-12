@@ -25,7 +25,7 @@ app.config.from_pyfile(filename="config.cfg", silent=False)
 # Initialize database
 with app.app_context():
     db.init_app(app)
-    from .models import Entry
+    from .models import Entry, UserEntry
 
     db.create_all()
     db.session.commit()

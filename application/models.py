@@ -17,6 +17,7 @@ class Entry(db.Model):
     def __init__(self, *args, **kwargs):
         super(Entry, self).__init__(*args, **kwargs)
 
+    # Columns
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     file_name = db.Column("file_name", db.String(100), nullable=False)
     image = db.Column("image", db.BLOB, nullable=False)
@@ -38,3 +39,17 @@ class Entry(db.Model):
     )
     # Table name
     __tablename__ = "prediction_entries"
+
+
+# Sign up entry class
+class UserEntry(db.Model):
+    def __init__(self, *args, **kwargs):
+        super(UserEntry, self).__init__(*args, **kwargs)
+
+    # Columns
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    email = db.Column("email", db.String(30), nullable=False, unique=True)
+    username = db.Column("username", db.String(30), nullable=False)
+    password = db.Column("password", db.String(30), nullable=False)
+    # Table name
+    __tablename__ = "user_database"

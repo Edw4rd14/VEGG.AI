@@ -12,9 +12,8 @@ FILENAME: login.html
 {% extends "layout.html" %}
 {% block content %}
 <div class="text-center">
-    <input id="openPopup" type="button" class="popup-button" value="LOGIN"></input>
+    <input id="openPopup" type="button" class="popup-button" value="LOGIN"/>
 </div>
-<div id="fill"></div>
 <div id="loginPopup" class="overlay {{ 'active' if session['login_failed'] else '' }}">
     <div class="popup-container">
       <div class="popup-image"></div>
@@ -23,12 +22,12 @@ FILENAME: login.html
         <form method="POST" novalidate action="/login">
             {{ form.hidden_tag() }}
             <div>
-                <img src="{{ url_for('static',filename='images/user.png')}}" class="login-form-img"> <!-- https://www.flaticon.com/free-icon/user_1077114?term=username&page=1&position=2&origin=search&related_id=1077114 --> 
-                {{ form.username.label(class='login-label') }}
+                <img src="{{ url_for('static',filename='images/email.png')}}" class="login-form-img"> <!-- https://www.flaticon.com/free-icon/email_542689?term=email&page=1&position=3&origin=search&related_id=542689 -->
+                {{ form.email.label(class='login-label') }}
                 <br>
-                {{ form.username(size=32) }}
-                {% if form.username.errors %}
-                <span class="login-error">{{ form.username.errors[-1] }}</span>
+                {{ form.email(size=32) }}
+                {% if form.email.errors %}
+                <span class="login-error">{{ form.email.errors[-1] }}</span>
                 {% endif %}
             </div>
             <div>
@@ -56,6 +55,10 @@ FILENAME: login.html
               {% endwith %}
             </div>
             {{ form.submit() }}
+            <div>
+              <span>New to Vegg.AI?</span>
+              <a href="{{ url_for('signup')}}" id="signup-link">Create an account!</a>
+          </div>
         </form>
       </div>
     </div>

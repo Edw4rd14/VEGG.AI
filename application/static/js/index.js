@@ -232,17 +232,23 @@ document.getElementById("search-input").addEventListener("keyup", () => {
     }
 });
 
-// SORT COLUMNS (ID AND TIMESTAMP) [REFFERRED TO https://www.youtube.com/watch?v=8SL_hM1a0yo]
+// SORT COLUMNS (ID AND TIMESTAMP) [REFFERRED TO https://www.youtube.com/watch?v=8SL_hM1a0yo AND MADE MODIFICATIONS]
 const sortTableByColumn = (table, column, asc = true) => {
     const dirModifier = asc ? 1: -1;
     const tBody = table.tBodies[0];
     const rows = Array.from(tBody.querySelectorAll('tr'));
     // Sort each row
-    const sortedRows = rows.sort((a,b)=>{
-        const aColText = a.querySelector(`td:nth-child(${column+1})`).textContent.trim();
-        const bColText = b.querySelector(`td:nth-child(${column+1})`).textContent.trim();
-        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier)
-    })
+    const sortedRows = rows.sort((a, b) => {
+        const aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+        const bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+        if (column === 0) {
+            const aVal = parseFloat(aColText) || 0;
+            const bVal = parseFloat(bColText) || 0;
+            return aVal > bVal ? (1 * dirModifier) : (-1 * dirModifier);
+        } else {
+            return aColText.localeCompare(bColText) * dirModifier;
+        }
+    });
     // Remove all existing TR from the table
     while (tBody.firstChild) {
         tBody.removeChild(tBody.firstChild);

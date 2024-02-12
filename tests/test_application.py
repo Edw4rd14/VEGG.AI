@@ -76,12 +76,6 @@ class TestNavigation:
 # Login Tests
 # ===========
 class TestLogin:
-    # Testing for login [EXPECTED FAILURE TESTING]
-    # Check for:
-    # - Incorrect login credentials
-    # - Missing login credentials
-    #       - Username
-    #       - Password
     @staticmethod
     def check_error_message(response, expected_error_message):
         soup = BeautifulSoup(response.data, "html.parser")
@@ -90,24 +84,30 @@ class TestLogin:
         assert response.status_code == 200
 
     @staticmethod
-    def perform_login(client, username, password, csrf_token):
+    def perform_login(client, email, password, csrf_token):
         return client.post(
             "/login",
-            data={"username": username, "password": password, "csrf_token": csrf_token},
+            data={"email": email, "password": password, "csrf_token": csrf_token},
             follow_redirects=True,
         )
 
+    # Testing for login [EXPECTED FAILURE TESTING]
+    # Check for:
+    # - Incorrect login credentials
+    # - Missing login credentials
+    #       - Username
+    #       - Password
     def test_login_incorrect(self, client):
         # Get CSRF token
         csrf_token = CSRFTokenManager.get_csrf(client=client, route="/login")
         # Incorrect login credentials
-        response = self.perform_login(client, "Admin123", "ABC123", csrf_token)
+        response = self.perform_login(client, "admin@gmail.com", "ABC123", csrf_token)
         self.check_error_message(response, "Incorrect Credentials.")
         # Missing login credentials [USERNAME]
         response = self.perform_login(client, "", "123ABC", csrf_token)
         self.check_error_message(response, "This input is required.")
         # Missing login credentials [PASSWORD]
-        response = self.perform_login(client, "Admin", "", csrf_token)
+        response = self.perform_login(client, "admin@gmail.com", "", csrf_token)
         self.check_error_message(response, "This input is required.")
 
     # Testing for Login [VALIDITY TESTING]
@@ -119,7 +119,11 @@ class TestLogin:
         csrf_token = CSRFTokenManager.get_csrf(client=client, route="/login")
         response = client.post(
             "/login",
-            data={"username": "Admin", "password": "123ABC", "csrf_token": csrf_token},
+            data={
+                "email": "admin@gmail.com",
+                "password": "123ABC",
+                "csrf_token": csrf_token,
+            },
             follow_redirects=True,
         )
         soup = BeautifulSoup(response.data, "html.parser")
@@ -148,7 +152,7 @@ class TestPrediction:
             follow_redirects=True,
         )
 
-    # SUCCESSFUL PREDICTIONS
+    # SUCCESSFUL PREDICTIONS [VALIDITY TESTING]
     # Check that:
     # - The prediction works
     @pytest.mark.filterwarnings("ignore")
@@ -173,10 +177,11 @@ class TestPrediction:
         assert response.data.decode("utf-8") in labels.values()
         assert response.status_code == 200
 
-    # INCORRECT PREDICTIONS [EXPECTED FAILURE TESTING]
+    # INCORRECT PREDICTIONS [UNEXPECTED FAILURE TESTING]
     # Check that:
     # - The prediction will NOT work for incorrect images and image sizes
     # - There is no need to check for file name as it is not processed, only displayed
+    # - Unexpected failure as these are values not expected to be able to be inputted by users (as they are not options)
     # - Marked as "xfail" as we expect them to fail
     @pytest.mark.filterwarnings("ignore")
     @pytest.mark.xfail(reason="Incorrect image, or incorrect image size")
@@ -286,9 +291,10 @@ class TestBackEnd:
             ".jpg"
         )
 
-    # INVALID HISTORY ENTRY [EXPECTED FAILURE TESTING]
+    # INVALID HISTORY ENTRY [UNEXPECTED FAILURE TESTING]
     # Check that:
     # - History entry constraints correctly validate against incorrect values trying to be passed in
+    # - Unexpected failure as these are values not expected to be able to be inputted by users (as they are validate/not options)
     @pytest.mark.xfail(
         reason="Invalid inputs (file name, image blob, image size or prediction)"
     )
