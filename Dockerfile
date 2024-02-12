@@ -10,14 +10,16 @@
 # Pull python version
 FROM python:3.8.18
 
+# Update packages
+RUN apt-get update -y
+
 # copy every content from the local file to the image
-COPY . /ca2-daaa2b04-2214407-edward-webapp
+COPY . /app
 
 # Set working directory
-WORKDIR /ca2-daaa2b04-2214407-edward-webapp
+WORKDIR /app
 
 # Install the dependencies and packages in the requirements file
-RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Set the FLASK_APP environment variable
@@ -27,4 +29,4 @@ ENV FLASK_APP=app.py
 EXPOSE 5000
 
 # Run the Flask application
-CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
+CMD gunicorn --bind 0.0.0.0:5000 app:app
