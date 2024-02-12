@@ -316,7 +316,7 @@ def api_delete(history_id):
 
 
 # Get all history API
-@app.route("/api/get", methods=["GET"])
+@app.route("/api/get_all", methods=["GET"])
 def get_all_history():
     # Return entire history
     return history_manager.get_history()

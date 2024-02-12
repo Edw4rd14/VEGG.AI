@@ -139,7 +139,7 @@ class TestRESTful:
     @staticmethod
     def test_empty_history(client):
         """Test empty history to ensure all entries were removed"""
-        response = client.get("/api/get")
+        response = client.get("/api/get_all")
         history = json.loads(response.get_data(as_text=True))
         assert history == []
 
